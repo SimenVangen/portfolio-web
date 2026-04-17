@@ -1,0 +1,291 @@
+{
+  "chunks": [
+    "# Bachelor's Thesis: The Predictive Potential of Social Media\n\n## Title\n\"The Predictive Potential of Social Media\" (Det prediktive potensialet til sosiale medier)\n\n## Institution\nKristiania University College \u2014 Bachelor's Thesis in BAO302, completed May 22, 2024\n\n## Abstract\nThis thesis determines critical factors influencing the number of monthly listeners for various artists by employing machine",
+    "uencing the number of monthly listeners for various artists by employing machine and deep learning models, using a dataset composed of social media metrics. Five models were used to determine critical factors for monthly listeners. Results show that the XGBoost model outperformed all other models and showed that YouTube subscribers influence the monthly listener variable the most.\n\n## Research Que",
+    "e subscribers influence the monthly listener variable the most.\n\n## Research Question\nWhat does social media engagement mean for Spotify streaming metrics, and how can we predict this effect through predictive modeling?\n\n## Why It Matters\nThe rapid growth of digital platforms has revolutionised the music industry \u2014 shifting from traditional album sales to digital streams and social media following",
+    "fting from traditional album sales to digital streams and social media following. Artists and music professionals need to understand and optimise their social media strategies to enhance streaming performance. This thesis fills that gap.\n\n## Data & Methodology\n- Dataset: Social media metrics combined with Spotify streaming data, provided by Nexro AS\n- Approach: Exploratory Data Analysis (EDA) foll",
+    "ming data, provided by Nexro AS\n- Approach: Exploratory Data Analysis (EDA) followed by univariate and multivariate predictive modeling\n- Both aggregated and time-series datasets were explored\n\n## Models Tested\n1. Prophet \u2014 univariate time series forecasting\n2. TensorFlow Windows Generator \u2014 multivariate deep learning\n3. XGBoost \u2014 gradient boosting, best performer\n4. LSTM \u2014 long short-term memory",
+    "3. XGBoost \u2014 gradient boosting, best performer\n4. LSTM \u2014 long short-term memory deep learning\n5. VAR \u2014 Vector Autoregression\n6. TFT \u2014 Temporal Fusion Transformer\n\n## Key Results\n- XGBoost outperformed all other models\n- YouTube subscribers were found to be the most influential variable on Spotify monthly listeners\n- The multivariate models captured richer patterns than univariate approaches\n\n## Pr",
+    "e multivariate models captured richer patterns than univariate approaches\n\n## Practical Application\nThe solution was designed for integration into Nexro's platform, giving music professionals an easy way to understand predictions through model interpretation tools. Use cases include planning album release dates, tour scheduling, and social media strategy.\n\n## Acknowledgements\nNexro AS provided dat",
+    "cheduling, and social media strategy.\n\n## Acknowledgements\nNexro AS provided data, resources, and guidance throughout the project.\n\n## Tools Used\nPython, XGBoost, TensorFlow, LSTM, Prophet, Pandas, scikit-learn, model interpretation tools",
+    "# Simen Vangen \u2014 Personal Story & Background\n\n## Early Life\nBorn January 25, 2000, in Nesodden, Norway. My first impression of the tech world was watching my brother sitting on a big old computer in the living room. That image stayed with me.\n\n## School & Early Path\nStudied media and communication at Nesodden Upper Secondary School (Videreg\u00e5ende) from 2016 to 2019. This background in communication",
+    "ondary School (Videreg\u00e5ende) from 2016 to 2019. This background in communication later shaped how I present data and explain complex findings clearly to non-technical audiences.\n\n## Norwegian Navy\nAfter school I served in the Norwegian military \u2014 specifically the Navy \u2014 for one and a half years. It was a formative experience. I gained discipline, the ability to work in high-pressure teams, leaders",
+    "rience. I gained discipline, the ability to work in high-pressure teams, leadership skills, and a practical mindset. The military teaches you to get things done with what you have.\n\n## University: Kristiania\nStarted at Kristiania University of Applied Science (H\u00f8yskolen) where I took my Bachelor's in Data Science. Met a lot of like-minded people who wanted to improve not only themselves but the pe",
+    "a lot of like-minded people who wanted to improve not only themselves but the people around them too. Completed the degree in 2025. The thesis was done in collaboration with Nexro AS, using real industry data.\n\n## After Graduation\nAfter graduating, I applied for many jobs but didn't get any. Instead of waiting, I made the decision to learn Chinese. Moved to Yangshuo, China for a full immersion Man",
+    "the decision to learn Chinese. Moved to Yangshuo, China for a full immersion Mandarin program at Yangshuo Omeida Language College (March\u2013November 2025). Since then I've gained basic conversational Mandarin and a deep appreciation for Chinese culture.\n\n## Now\nStudying Mandarin and building my portfolio. Working on FruitWatch, the Life Path Simulator, and expanding into embodied AI and robotics. Loo",
+    "Watch, the Life Path Simulator, and expanding into embodied AI and robotics. Looking for ML Engineer or AI Researcher roles where I can keep building things that matter.\n\n## Personality & Work Style\n- I learn by building \u2014 not by reading alone\n- I ship honest work rather than waiting for perfection\n- I can communicate technical findings clearly to non-technical people (background in media helps)\n-",
+    "technical findings clearly to non-technical people (background in media helps)\n- I'm self-taught beyond my internship, so every skill came from actually solving a problem\n- I take on ambitious ideas and scope them down intelligently when needed (see: robotic arm \u2192 FruitWatch)\n\n## Contact\n- Email: simenv@hotmail.no\n- Phone: +47 40606894\n- GitHub: https://github.com/SimenVangen\n- Location: Norway",
+    "one: +47 40606894\n- GitHub: https://github.com/SimenVangen\n- Location: Norway",
+    "# Simen's Interests \u2014 Embodied AI, Robotics & Computer Vision\n\n## Core Interest: Embodied AI\nMy most recent and growing interest is embodied AI \u2014 AI implemented in robotics to simplify human lives. Unlike pure language models or classifiers that process data in isolation, embodied AI agents must perceive, reason, and act in the real world. That gap between a model that can describe how to pick up",
+    "ct in the real world. That gap between a model that can describe how to pick up a fruit and a robot that actually does it is where I want to work.\n\n## Origin Story\nFruitWatch started as an attempt to build a soft robotic arm to harvest lychees. I read research papers on pneumatic grippers and compliant mechanisms. When that wasn't feasible with available hardware, I built the monitoring system ins",
+    "that wasn't feasible with available hardware, I built the monitoring system instead. The robotic arm idea is not dead \u2014 it's just next. That experience taught me more than any course could: integrate hardware constraints early, ship something real, keep iterating.\n\n## Key Areas I'm Exploring\n- Robot navigation \u2014 path planning and obstacle avoidance in dynamic environments\n- Sim-to-real transfer \u2014",
+    "planning and obstacle avoidance in dynamic environments\n- Sim-to-real transfer \u2014 training in simulation, deploying in the real world\n- Perception for manipulation \u2014 computer vision pipelines that let robots understand and interact with objects\n- LLM-guided robotics \u2014 using language models as high-level planners that break down instructions into robot-executable steps\n- Edge inference \u2014 running mod",
+    "eak down instructions into robot-executable steps\n- Edge inference \u2014 running models on resource-constrained hardware like Raspberry Pi\n\n## Tools & Frameworks\n- YOLOv8 for real-time object detection\n- Raspberry Pi 5 with Camera Module 3 for edge inference\n- PyTorch for model training\n- FastAPI for serving models\n- Interest in ROS, PyBullet, MuJoCo for simulation\n\n## Why Computer Vision First\nComput",
+    "est in ROS, PyBullet, MuJoCo for simulation\n\n## Why Computer Vision First\nComputer vision is the sensory layer for robotics. Before a robot can act, it needs to see and understand. FruitWatch was my first step \u2014 getting models to detect, classify, and interpret visual data in real-world conditions. The next step is closing the loop: connecting that perception to physical action.\n\n## Philosophy\nI b",
+    "sing the loop: connecting that perception to physical action.\n\n## Philosophy\nI believe shipping something honest beats waiting for something perfect. Every project I've built has taught me something the papers don't \u2014 real systems break in ways simulations don't predict, and the most valuable skill is debugging something no one has documented before.",
+    "# Project: FruitWatch \u2014 AI-Powered Fruit Monitoring Platform\n\n## Overview\nFruitWatch is a drone-based AI platform for fruit detection, ripeness analysis, plant disease detection, and harvest prediction. Built with YOLOv8, FastAPI, and React.\n\n## The Story Behind It\nIt started with a frustration: fruit picking is hard, dangerous, and inefficient \u2014 especially on mountain terrain where workers risk i",
+    "dangerous, and inefficient \u2014 especially on mountain terrain where workers risk injury every season. The original plan was to build a soft robotic hand that could autonomously pick lychee fruits from trees. After deep research into actuator designs, pneumatic grippers, and compliant mechanisms, reality hit \u2014 no hardware, no manufacturing capability, no mechanical engineering background to match PhD",
+    ", no manufacturing capability, no mechanical engineering background to match PhD labs with years of funding.\n\nSo the project scaled down in scope but not ambition. Instead of a hand that picks fruit, a brain that monitors it. A full-stack AI platform where a drone flies over an orchard, detects and classifies fruits, detects plant diseases, maps GPS coordinates, predicts harvest readiness, and dis",
+    "etects plant diseases, maps GPS coordinates, predicts harvest readiness, and displays everything on a real-time dashboard. The monitoring problem is arguably more valuable to solve first anyway.\n\n## What It Does\nAn image from a drone or Raspberry Pi camera is uploaded to the platform. The backend automatically runs the right models based on farm type, classifies each fruit as ripe or unripe, detec",
+    "right models based on farm type, classifies each fruit as ripe or unripe, detects plant diseases, attaches GPS coordinates, stores everything in a database, and feeds a harvest prediction engine. The frontend displays everything on an interactive map with charts, weather forecasts, scan galleries, and harvest timelines.\n\nPipeline: Image \u2192 Farm Type Lookup \u2192 YOLOv8 Fruit Detection + Plant Disease",
+    "s.\n\nPipeline: Image \u2192 Farm Type Lookup \u2192 YOLOv8 Fruit Detection + Plant Disease Classifier \u2192 GPS Positioning \u2192 SQLite DB \u2192 Harvest Prediction \u2192 React Dashboard\n\n## Tech Stack\n- Fruit Detection: YOLOv8 (Ultralytics) \u2014 custom-trained lychee model\n- Disease Detection: YOLOv8 classification \u2014 PlantVillage dataset, 29 classes\n- Backend: FastAPI, SQLAlchemy, SQLite, JWT authentication\n- Weather: OpenWea",
+    "es\n- Backend: FastAPI, SQLAlchemy, SQLite, JWT authentication\n- Weather: OpenWeatherMap API\n- Frontend: React, styled-components, Leaflet maps, Recharts\n- Edge: Raspberry Pi 5 + Camera Module 3\n- Language support: Bilingual EN/ZH\n\n## AI Models\nTwo models run on every image upload:\n1. Lychee model \u2014 detects lychee fruits, classifies as ripe or unripe using HSV color analysis. Draws bounding boxes o",
+    "s, classifies as ripe or unripe using HSV color analysis. Draws bounding boxes on annotated images.\n2. Plant disease classifier \u2014 trained on PlantVillage dataset, detects 29 disease classes across 9 crops: Tomato, Potato, Pepper, Apple, Grape, Corn, Peach, Strawberry, Cherry. 60% confidence threshold to prevent false positives.\n\nWhich models run is determined automatically by the farm's farm_type",
+    "ositives.\n\nWhich models run is determined automatically by the farm's farm_type \u2014 no manual selection needed.\n\n## Farm Type System\n- lychee farms: runs lychee YOLOv8 + disease classifier, shows ripeness charts and harvest prediction\n- plant_disease_only farms: runs disease classifier only, shows health status and disease breakdown\n\n## Model Performance\nPlant disease classifier achieved 99.8% top-1",
+    "se breakdown\n\n## Model Performance\nPlant disease classifier achieved 99.8% top-1 accuracy on PlantVillage validation set.\n\n## Edge Inference\nSupports standalone inference on Raspberry Pi 5 with Camera Module 3. No backend needed \u2014 model runs directly on device.\n\n## Honest Limitations\n- GPS uses simplified flat-earth math, not production-grade gimbal telemetry\n- Ripeness detection uses HSV color th",
+    "th, not production-grade gimbal telemetry\n- Ripeness detection uses HSV color thresholding \u2014 fragile in outdoor lighting\n- Disease detection trained on studio images, not field drone shots\n- Harvest prediction is a linear formula, not a real ML model\nThese are known trade-offs made to ship a complete working system.\n\n## What's Next\n- Soil moisture and temperature sensors wiring into the dashboard",
+    "# What's Next\n- Soil moisture and temperature sensors wiring into the dashboard\n- Per-tree grouping on the map\n- The soft robotics arm idea is not dead \u2014 it's just next\n\n## What I Learned\nIntegrating custom-trained computer vision models into a production-style API, building a full-stack application with real data flow, designing a UI that communicates complex farm data clearly, and running infere",
+    ", designing a UI that communicates complex farm data clearly, and running inference on edge hardware.\n\n## GitHub\nhttps://github.com/SimenVangen\nBuilt by Simen Vangen. MIT License.",
+    "# Project: Life Path Simulator \u2014 AI-Powered Life Simulation Game\n\n## Overview\nAn AI-powered life simulation game where you navigate decisions from age 10 to 80. Every choice updates a live stat system, and a custom-trained transformer model generates consequences based on your full decision history \u2014 then explains why that outcome happened.\n\n## Why I Built This\nMost AI portfolio projects are wrapp",
+    "that outcome happened.\n\n## Why I Built This\nMost AI portfolio projects are wrappers around ChatGPT. I wanted to build something where I owned the entire stack \u2014 the data, the model architecture, the training loop, and the product on top of it. I wanted to understand what it actually takes to train a transformer from scratch and integrate it into a real interactive product.\n\nThe core idea came from",
+    "ratch and integrate it into a real interactive product.\n\nThe core idea came from thinking about how small decisions compound over time. Skipping homework at age 12 shouldn't just be a one-off event \u2014 it should quietly lower your discipline stat, which affects what opportunities are available at 25. The AI needed to understand causality across a lifetime, not just respond to a single prompt.\n\n## Ho",
+    "erstand causality across a lifetime, not just respond to a single prompt.\n\n## How It Works\n- You are presented with life decisions at each age milestone\n- You pick one\n- The AI generates a consequence based on your current stats and full decision history\n- It explains why that outcome happened \u2014 referencing patterns in your past choices\n- A visual decision tree grows on screen as you play\n- Altern",
+    "your past choices\n- A visual decision tree grows on screen as you play\n- Alternate paths branch off in green when you explore what could have been\n\n## The Custom AI Model\nThis is NOT a wrapper around an existing API. It is a custom GPT-style decoder-only transformer trained from scratch using PyTorch.\n\nArchitecture:\n- Type: Decoder-only transformer\n- Parameters: 88 million\n- Layers: 12\n- Embeddin",
+    "Type: Decoder-only transformer\n- Parameters: 88 million\n- Layers: 12\n- Embedding dimension: 768\n- Attention heads: 12\n- Vocabulary size: 1,979 tokens\n- Training examples: 50,000 synthetic\n- Validation loss: 0.235\n- Framework: PyTorch\n\nTraining data was generated synthetically using a hand-crafted causal rule engine. Each example is a structured (age, stats, decision) \u2192 consequence pair. 25% of ex",
+    "ach example is a structured (age, stats, decision) \u2192 consequence pair. 25% of examples are counterfactual pairs that teach the model to reason about alternate outcomes.\n\nThe model receives the full decision history with every call, enabling explanations like: \"A recurring pattern of 'skip homework' choices has shaped the conditions that led here. Low discipline \u2014 built up across many small choices",
+    "he conditions that led here. Low discipline \u2014 built up across many small choices \u2014 made this outcome harder to avoid.\"\n\n## Tech Stack\n- Model: PyTorch \u2014 custom transformer architecture\n- Tokenizer: Custom word-level tokenizer\n- Backend: FastAPI, Uvicorn\n- Frontend: React, React Flow\n- Training: CPU (MacBook M-series)\n\n## What I Learned\n- How to design and train a small transformer from scratch inc",
+    "## What I Learned\n- How to design and train a small transformer from scratch including data pipeline, tokenizer, and training loop\n- How to structure synthetic training data for causal reasoning rather than general text generation\n- How prompt design affects model output quality \u2014 framing as structured prediction rather than open-ended generation made a significant difference\n- How to serve a PyTo",
+    "r than open-ended generation made a significant difference\n- How to serve a PyTorch model through a REST API and connect it to a React frontend\n\n## GitHub\nhttps://github.com/SimenVangen\nThis is a portfolio project built to demonstrate end-to-end ML engineering.",
+    "# Simen Vangen \u2014 Full Profile & Background\n\n## Personal\n- Age: 26, born January 25, 2000\n\n- Email: simenv@hotmail.no\n- Phone: +47 40606894\n- GitHub: https://github.com/SimenVangen\n\n## Who I Am\nI build AI projects that solve real problems. I'm self-taught beyond my internship, which means everything I know came from actually building things \u2014 breaking them, fixing them, and starting over. My backgr",
+    "ually building things \u2014 breaking them, fixing them, and starting over. My background sits at the intersection of AI, machine learning, and data \u2014 with a growing interest in robotics and embodied AI.\n\nMy first impression of the tech world was watching my brother on a big old computer in the living room when I was little. Since then I've studied media and communication, served in the Norwegian Navy",
+    ". Since then I've studied media and communication, served in the Norwegian Navy for a year and a half, completed a BSc in Data Science, and am now in China learning Mandarin while building my portfolio.\n\nI believe shipping something honest beats waiting for something perfect.\n\n## Education\n\n### BSc Data Science \u2014 Kristiania University of Applied Science (2021\u20132025)\nCore focus: machine learning, NL",
+    "iania University of Applied Science (2021\u20132025)\nCore focus: machine learning, NLP, data visualisation, statistics, Python, data engineering.\nThesis: \"The Predictive Potential of Social Media\" \u2014 using ML models to predict Spotify streaming metrics from social media engagement.\n\n### Norwegian Military \u2014 Navy (approx. 2019\u20132021)\nOne and a half years of service. Gained discipline, teamwork, leadership",
+    "9\u20132021)\nOne and a half years of service. Gained discipline, teamwork, leadership, and real-world problem-solving experience.\n\n### Chinese Language Program \u2014 Yangshuo Omeida Language College, China (Mar 2025 \u2013 Nov 2025)\nFull immersion Mandarin program. \n\n### Media & Communication \u2014 Nesodden Upper Secondary School (2016\u20132019)\n\n## Work Experience\n\n### Nexro \u2014 Data Science Intern (Jan 2024 \u2013 May 2024)",
+    "2019)\n\n## Work Experience\n\n### Nexro \u2014 Data Science Intern (Jan 2024 \u2013 May 2024)\n- Built ML models to predict correlation between social media engagement and Spotify streaming metrics.\n- Conducted extensive EDA across large datasets.\n- Built data interpretation pipelines for actionable insights.\n- This internship was directly tied to his bachelor's thesis research.\n- Stack: Python, scikit-learn, X",
+    "irectly tied to his bachelor's thesis research.\n- Stack: Python, scikit-learn, XGBoost, TensorFlow, Pandas.\n\n### Granbar \u2014 Bar Manager (Sep 2022 \u2013 Apr 2024)\n- Day-to-day operations including inventory control and staff scheduling.\n- Led a diverse team in a positive and motivated work environment.\n- Strong focus on customer experience.\n\n### Tamigo \u2014 Personal Care Assistant (Oct 2021 \u2013 May 2022)\n- C",
+    "omer experience.\n\n### Tamigo \u2014 Personal Care Assistant (Oct 2021 \u2013 May 2022)\n- Comprehensive daily assistance for a person with seizure-related needs.\n- Implemented safety protocols to mitigate seizure-related risk.\n- Developed strong adaptability in evolving circumstances.\n\n## Technical Skills\n- Python: Advanced\n- Machine Learning: Advanced (scikit-learn, XGBoost, TensorFlow, PyTorch)\n- Computer",
+    "hine Learning: Advanced (scikit-learn, XGBoost, TensorFlow, PyTorch)\n- Computer Vision: YOLOv8, object detection, image classification\n- Data Visualisation: Advanced (Seaborn, Plotly, Matplotlib, Recharts)\n- NLP: Proficient\n- FastAPI: Proficient\n- React: Developing\n- SQL / SQLite: Proficient\n- Pandas / NumPy: Advanced\n- Embodied AI / Robotics: Active focus area\n- Edge inference: Raspberry Pi 5 wit",
+    "- Embodied AI / Robotics: Active focus area\n- Edge inference: Raspberry Pi 5 with Camera Module 3\n\n## Languages\n- Norwegian: Native\n- English: Fluent\n- Mandarin Chinese: Basic conversational, currently learning in China\n\n## Current Focus\n- Embodied AI \u2014 AI implemented in robotics to simplify human lives\n- Computer vision applied to real-world physical problems\n- Building full-stack AI systems end",
+    "on applied to real-world physical problems\n- Building full-stack AI systems end to end\n- Looking for ML Engineer or AI Researcher roles\n\n## Availability\nAvailable for opportunities \u2014 ML Engineer, AI Researcher, or data science roles. Open to internships, research positions, or project collaborations."
+  ],
+  "meta": [
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 0
+    },
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 1
+    },
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 2
+    },
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 3
+    },
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 4
+    },
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 5
+    },
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 6
+    },
+    {
+      "filename": "thesis.txt",
+      "chunk_index": 7
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 0
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 1
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 2
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 3
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 4
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 5
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 6
+    },
+    {
+      "filename": "personal_story.txt",
+      "chunk_index": 7
+    },
+    {
+      "filename": "interests_embodied_ai.txt",
+      "chunk_index": 0
+    },
+    {
+      "filename": "interests_embodied_ai.txt",
+      "chunk_index": 1
+    },
+    {
+      "filename": "interests_embodied_ai.txt",
+      "chunk_index": 2
+    },
+    {
+      "filename": "interests_embodied_ai.txt",
+      "chunk_index": 3
+    },
+    {
+      "filename": "interests_embodied_ai.txt",
+      "chunk_index": 4
+    },
+    {
+      "filename": "interests_embodied_ai.txt",
+      "chunk_index": 5
+    },
+    {
+      "filename": "interests_embodied_ai.txt",
+      "chunk_index": 6
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 0
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 1
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 2
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 3
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 4
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 5
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 6
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 7
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 8
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 9
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 10
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 11
+    },
+    {
+      "filename": "project_fruitwatch.txt",
+      "chunk_index": 12
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 0
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 1
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 2
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 3
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 4
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 5
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 6
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 7
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 8
+    },
+    {
+      "filename": "project_life_path_simulator.txt",
+      "chunk_index": 9
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 0
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 1
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 2
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 3
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 4
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 5
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 6
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 7
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 8
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 9
+    },
+    {
+      "filename": "cv.txt",
+      "chunk_index": 10
+    }
+  ]
+}
