@@ -1,0 +1,4 @@
+.env
+embeddings/
+__pycache__/
+logs/

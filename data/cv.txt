@@ -1,0 +1,76 @@
+# Simen Vangen — Full Profile & Background
+
+## Personal
+- Age: 26, born January 25, 2000
+
+- Email: simenv@hotmail.no
+- Phone: +47 40606894
+- GitHub: https://github.com/SimenVangen
+
+## Who I Am
+I build AI projects that solve real problems. I'm self-taught beyond my internship, which means everything I know came from actually building things — breaking them, fixing them, and starting over. My background sits at the intersection of AI, machine learning, and data — with a growing interest in robotics and embodied AI.
+
+My first impression of the tech world was watching my brother on a big old computer in the living room when I was little. Since then I've studied media and communication, served in the Norwegian Navy for a year and a half, completed a BSc in Data Science, and am now in China learning Mandarin while building my portfolio.
+
+I believe shipping something honest beats waiting for something perfect.
+
+## Education
+
+### BSc Data Science — Kristiania University of Applied Science (2021–2025)
+Core focus: machine learning, NLP, data visualisation, statistics, Python, data engineering.
+Thesis: "The Predictive Potential of Social Media" — using ML models to predict Spotify streaming metrics from social media engagement.
+
+### Norwegian Military — Navy (approx. 2019–2021)
+One and a half years of service. Gained discipline, teamwork, leadership, and real-world problem-solving experience.
+
+### Chinese Language Program — Yangshuo Omeida Language College, China (Mar 2025 – Nov 2025)
+Full immersion Mandarin program. 
+
+### Media & Communication — Nesodden Upper Secondary School (2016–2019)
+
+## Work Experience
+
+### Nexro — Data Science Intern (Jan 2024 – May 2024)
+- Built ML models to predict correlation between social media engagement and Spotify streaming metrics.
+- Conducted extensive EDA across large datasets.
+- Built data interpretation pipelines for actionable insights.
+- This internship was directly tied to his bachelor's thesis research.
+- Stack: Python, scikit-learn, XGBoost, TensorFlow, Pandas.
+
+### Granbar — Bar Manager (Sep 2022 – Apr 2024)
+- Day-to-day operations including inventory control and staff scheduling.
+- Led a diverse team in a positive and motivated work environment.
+- Strong focus on customer experience.
+
+### Tamigo — Personal Care Assistant (Oct 2021 – May 2022)
+- Comprehensive daily assistance for a person with seizure-related needs.
+- Implemented safety protocols to mitigate seizure-related risk.
+- Developed strong adaptability in evolving circumstances.
+
+## Technical Skills
+- Python: Advanced
+- Machine Learning: Advanced (scikit-learn, XGBoost, TensorFlow, PyTorch)
+- Computer Vision: YOLOv8, object detection, image classification
+- Data Visualisation: Advanced (Seaborn, Plotly, Matplotlib, Recharts)
+- NLP: Proficient
+- FastAPI: Proficient
+- React: Developing
+- SQL / SQLite: Proficient
+- Pandas / NumPy: Advanced
+- Embodied AI / Robotics: Active focus area
+- Edge inference: Raspberry Pi 5 with Camera Module 3
+
+## Languages
+- Norwegian: Native
+- English: Fluent
+- Mandarin Chinese: Basic conversational, currently learning in China
+
+## Current Focus
+- Embodied AI — AI implemented in robotics to simplify human lives
+- Computer vision applied to real-world physical problems
+- Building full-stack AI systems end to end
+- Looking for ML Engineer or AI Researcher roles
+
+## Availability
+Available for opportunities — ML Engineer, AI Researcher, or data science roles. Open to internships, research positions, or project collaborations.
+

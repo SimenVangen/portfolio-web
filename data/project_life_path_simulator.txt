@@ -1,0 +1,52 @@
+# Project: Life Path Simulator — AI-Powered Life Simulation Game
+
+## Overview
+An AI-powered life simulation game where you navigate decisions from age 10 to 80. Every choice updates a live stat system, and a custom-trained transformer model generates consequences based on your full decision history — then explains why that outcome happened.
+
+## Why I Built This
+Most AI portfolio projects are wrappers around ChatGPT. I wanted to build something where I owned the entire stack — the data, the model architecture, the training loop, and the product on top of it. I wanted to understand what it actually takes to train a transformer from scratch and integrate it into a real interactive product.
+
+The core idea came from thinking about how small decisions compound over time. Skipping homework at age 12 shouldn't just be a one-off event — it should quietly lower your discipline stat, which affects what opportunities are available at 25. The AI needed to understand causality across a lifetime, not just respond to a single prompt.
+
+## How It Works
+- You are presented with life decisions at each age milestone
+- You pick one
+- The AI generates a consequence based on your current stats and full decision history
+- It explains why that outcome happened — referencing patterns in your past choices
+- A visual decision tree grows on screen as you play
+- Alternate paths branch off in green when you explore what could have been
+
+## The Custom AI Model
+This is NOT a wrapper around an existing API. It is a custom GPT-style decoder-only transformer trained from scratch using PyTorch.
+
+Architecture:
+- Type: Decoder-only transformer
+- Parameters: 88 million
+- Layers: 12
+- Embedding dimension: 768
+- Attention heads: 12
+- Vocabulary size: 1,979 tokens
+- Training examples: 50,000 synthetic
+- Validation loss: 0.235
+- Framework: PyTorch
+
+Training data was generated synthetically using a hand-crafted causal rule engine. Each example is a structured (age, stats, decision) → consequence pair. 25% of examples are counterfactual pairs that teach the model to reason about alternate outcomes.
+
+The model receives the full decision history with every call, enabling explanations like: "A recurring pattern of 'skip homework' choices has shaped the conditions that led here. Low discipline — built up across many small choices — made this outcome harder to avoid."
+
+## Tech Stack
+- Model: PyTorch — custom transformer architecture
+- Tokenizer: Custom word-level tokenizer
+- Backend: FastAPI, Uvicorn
+- Frontend: React, React Flow
+- Training: CPU (MacBook M-series)
+
+## What I Learned
+- How to design and train a small transformer from scratch including data pipeline, tokenizer, and training loop
+- How to structure synthetic training data for causal reasoning rather than general text generation
+- How prompt design affects model output quality — framing as structured prediction rather than open-ended generation made a significant difference
+- How to serve a PyTorch model through a REST API and connect it to a React frontend
+
+## GitHub
+https://github.com/SimenVangen
+This is a portfolio project built to demonstrate end-to-end ML engineering.

@@ -1,0 +1,32 @@
+# Simen Vangen — Personal Story & Background
+
+## Early Life
+Born January 25, 2000, in Nesodden, Norway. My first impression of the tech world was watching my brother sitting on a big old computer in the living room. That image stayed with me.
+
+## School & Early Path
+Studied media and communication at Nesodden Upper Secondary School (Videregående) from 2016 to 2019. This background in communication later shaped how I present data and explain complex findings clearly to non-technical audiences.
+
+## Norwegian Navy
+After school I served in the Norwegian military — specifically the Navy — for one and a half years. It was a formative experience. I gained discipline, the ability to work in high-pressure teams, leadership skills, and a practical mindset. The military teaches you to get things done with what you have.
+
+## University: Kristiania
+Started at Kristiania University of Applied Science (Høyskolen) where I took my Bachelor's in Data Science. Met a lot of like-minded people who wanted to improve not only themselves but the people around them too. Completed the degree in 2025. The thesis was done in collaboration with Nexro AS, using real industry data.
+
+## After Graduation
+After graduating, I applied for many jobs but didn't get any. Instead of waiting, I made the decision to learn Chinese. Moved to Yangshuo, China for a full immersion Mandarin program at Yangshuo Omeida Language College (March–November 2025). Since then I've gained basic conversational Mandarin and a deep appreciation for Chinese culture.
+
+## Now
+Studying Mandarin and building my portfolio. Working on FruitWatch, the Life Path Simulator, and expanding into embodied AI and robotics. Looking for ML Engineer or AI Researcher roles where I can keep building things that matter.
+
+## Personality & Work Style
+- I learn by building — not by reading alone
+- I ship honest work rather than waiting for perfection
+- I can communicate technical findings clearly to non-technical people (background in media helps)
+- I'm self-taught beyond my internship, so every skill came from actually solving a problem
+- I take on ambitious ideas and scope them down intelligently when needed (see: robotic arm → FruitWatch)
+
+## Contact
+- Email: simenv@hotmail.no
+- Phone: +47 40606894
+- GitHub: https://github.com/SimenVangen
+- Location: Norway

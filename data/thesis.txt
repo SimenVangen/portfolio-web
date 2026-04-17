@@ -1,0 +1,43 @@
+# Bachelor's Thesis: The Predictive Potential of Social Media
+
+## Title
+"The Predictive Potential of Social Media" (Det prediktive potensialet til sosiale medier)
+
+## Institution
+Kristiania University College — Bachelor's Thesis in BAO302, completed May 22, 2024
+
+## Abstract
+This thesis determines critical factors influencing the number of monthly listeners for various artists by employing machine and deep learning models, using a dataset composed of social media metrics. Five models were used to determine critical factors for monthly listeners. Results show that the XGBoost model outperformed all other models and showed that YouTube subscribers influence the monthly listener variable the most.
+
+## Research Question
+What does social media engagement mean for Spotify streaming metrics, and how can we predict this effect through predictive modeling?
+
+## Why It Matters
+The rapid growth of digital platforms has revolutionised the music industry — shifting from traditional album sales to digital streams and social media following. Artists and music professionals need to understand and optimise their social media strategies to enhance streaming performance. This thesis fills that gap.
+
+## Data & Methodology
+- Dataset: Social media metrics combined with Spotify streaming data, provided by Nexro AS
+- Approach: Exploratory Data Analysis (EDA) followed by univariate and multivariate predictive modeling
+- Both aggregated and time-series datasets were explored
+
+## Models Tested
+1. Prophet — univariate time series forecasting
+2. TensorFlow Windows Generator — multivariate deep learning
+3. XGBoost — gradient boosting, best performer
+4. LSTM — long short-term memory deep learning
+5. VAR — Vector Autoregression
+6. TFT — Temporal Fusion Transformer
+
+## Key Results
+- XGBoost outperformed all other models
+- YouTube subscribers were found to be the most influential variable on Spotify monthly listeners
+- The multivariate models captured richer patterns than univariate approaches
+
+## Practical Application
+The solution was designed for integration into Nexro's platform, giving music professionals an easy way to understand predictions through model interpretation tools. Use cases include planning album release dates, tour scheduling, and social media strategy.
+
+## Acknowledgements
+Nexro AS provided data, resources, and guidance throughout the project.
+
+## Tools Used
+Python, XGBoost, TensorFlow, LSTM, Prophet, Pandas, scikit-learn, model interpretation tools

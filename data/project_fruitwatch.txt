@@ -1,0 +1,59 @@
+# Project: FruitWatch — AI-Powered Fruit Monitoring Platform
+
+## Overview
+FruitWatch is a drone-based AI platform for fruit detection, ripeness analysis, plant disease detection, and harvest prediction. Built with YOLOv8, FastAPI, and React.
+
+## The Story Behind It
+It started with a frustration: fruit picking is hard, dangerous, and inefficient — especially on mountain terrain where workers risk injury every season. The original plan was to build a soft robotic hand that could autonomously pick lychee fruits from trees. After deep research into actuator designs, pneumatic grippers, and compliant mechanisms, reality hit — no hardware, no manufacturing capability, no mechanical engineering background to match PhD labs with years of funding.
+
+So the project scaled down in scope but not ambition. Instead of a hand that picks fruit, a brain that monitors it. A full-stack AI platform where a drone flies over an orchard, detects and classifies fruits, detects plant diseases, maps GPS coordinates, predicts harvest readiness, and displays everything on a real-time dashboard. The monitoring problem is arguably more valuable to solve first anyway.
+
+## What It Does
+An image from a drone or Raspberry Pi camera is uploaded to the platform. The backend automatically runs the right models based on farm type, classifies each fruit as ripe or unripe, detects plant diseases, attaches GPS coordinates, stores everything in a database, and feeds a harvest prediction engine. The frontend displays everything on an interactive map with charts, weather forecasts, scan galleries, and harvest timelines.
+
+Pipeline: Image → Farm Type Lookup → YOLOv8 Fruit Detection + Plant Disease Classifier → GPS Positioning → SQLite DB → Harvest Prediction → React Dashboard
+
+## Tech Stack
+- Fruit Detection: YOLOv8 (Ultralytics) — custom-trained lychee model
+- Disease Detection: YOLOv8 classification — PlantVillage dataset, 29 classes
+- Backend: FastAPI, SQLAlchemy, SQLite, JWT authentication
+- Weather: OpenWeatherMap API
+- Frontend: React, styled-components, Leaflet maps, Recharts
+- Edge: Raspberry Pi 5 + Camera Module 3
+- Language support: Bilingual EN/ZH
+
+## AI Models
+Two models run on every image upload:
+1. Lychee model — detects lychee fruits, classifies as ripe or unripe using HSV color analysis. Draws bounding boxes on annotated images.
+2. Plant disease classifier — trained on PlantVillage dataset, detects 29 disease classes across 9 crops: Tomato, Potato, Pepper, Apple, Grape, Corn, Peach, Strawberry, Cherry. 60% confidence threshold to prevent false positives.
+
+Which models run is determined automatically by the farm's farm_type — no manual selection needed.
+
+## Farm Type System
+- lychee farms: runs lychee YOLOv8 + disease classifier, shows ripeness charts and harvest prediction
+- plant_disease_only farms: runs disease classifier only, shows health status and disease breakdown
+
+## Model Performance
+Plant disease classifier achieved 99.8% top-1 accuracy on PlantVillage validation set.
+
+## Edge Inference
+Supports standalone inference on Raspberry Pi 5 with Camera Module 3. No backend needed — model runs directly on device.
+
+## Honest Limitations
+- GPS uses simplified flat-earth math, not production-grade gimbal telemetry
+- Ripeness detection uses HSV color thresholding — fragile in outdoor lighting
+- Disease detection trained on studio images, not field drone shots
+- Harvest prediction is a linear formula, not a real ML model
+These are known trade-offs made to ship a complete working system.
+
+## What's Next
+- Soil moisture and temperature sensors wiring into the dashboard
+- Per-tree grouping on the map
+- The soft robotics arm idea is not dead — it's just next
+
+## What I Learned
+Integrating custom-trained computer vision models into a production-style API, building a full-stack application with real data flow, designing a UI that communicates complex farm data clearly, and running inference on edge hardware.
+
+## GitHub
+https://github.com/SimenVangen
+Built by Simen Vangen. MIT License.

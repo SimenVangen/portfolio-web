@@ -1,0 +1,27 @@
+# Simen's Interests — Embodied AI, Robotics & Computer Vision
+
+## Core Interest: Embodied AI
+My most recent and growing interest is embodied AI — AI implemented in robotics to simplify human lives. Unlike pure language models or classifiers that process data in isolation, embodied AI agents must perceive, reason, and act in the real world. That gap between a model that can describe how to pick up a fruit and a robot that actually does it is where I want to work.
+
+## Origin Story
+FruitWatch started as an attempt to build a soft robotic arm to harvest lychees. I read research papers on pneumatic grippers and compliant mechanisms. When that wasn't feasible with available hardware, I built the monitoring system instead. The robotic arm idea is not dead — it's just next. That experience taught me more than any course could: integrate hardware constraints early, ship something real, keep iterating.
+
+## Key Areas I'm Exploring
+- Robot navigation — path planning and obstacle avoidance in dynamic environments
+- Sim-to-real transfer — training in simulation, deploying in the real world
+- Perception for manipulation — computer vision pipelines that let robots understand and interact with objects
+- LLM-guided robotics — using language models as high-level planners that break down instructions into robot-executable steps
+- Edge inference — running models on resource-constrained hardware like Raspberry Pi
+
+## Tools & Frameworks
+- YOLOv8 for real-time object detection
+- Raspberry Pi 5 with Camera Module 3 for edge inference
+- PyTorch for model training
+- FastAPI for serving models
+- Interest in ROS, PyBullet, MuJoCo for simulation
+
+## Why Computer Vision First
+Computer vision is the sensory layer for robotics. Before a robot can act, it needs to see and understand. FruitWatch was my first step — getting models to detect, classify, and interpret visual data in real-world conditions. The next step is closing the loop: connecting that perception to physical action.
+
+## Philosophy
+I believe shipping something honest beats waiting for something perfect. Every project I've built has taught me something the papers don't — real systems break in ways simulations don't predict, and the most valuable skill is debugging something no one has documented before.
