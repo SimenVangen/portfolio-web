@@ -12,9 +12,6 @@
     .nav-left{display:flex;gap:28px;align-items:flex-start;}
     .nav-name{font-size:13px;font-weight:700;color:#fff;letter-spacing:0.04em;line-height:1.3;}
     .nav-role{font-size:12px;color:#555;line-height:1.5;padding-top:1px;}
-    .nav-links{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-    .nav-links a{font-size:11px;color:#444;text-decoration:none;letter-spacing:0.12em;transition:color 0.2s;}
-    .nav-links a:hover{color:#fff;}
     .stage{position:absolute;top:60px;left:0;right:0;bottom:44px;overflow:hidden;display:flex;align-items:center;justify-content:center;perspective:900px;perspective-origin:50% 50%;background:#0d0d0d;}
     .card{position:absolute;width:78%;max-width:760px;height:78%;border-radius:10px;overflow:hidden;will-change:transform,opacity;background:#111;}
     .card img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -50,25 +47,11 @@
     .ov-media-grid img.wide{grid-column:1/-1;aspect-ratio:16/7;}
 
     /* ── CHAT HINT ── */
-    .chat-hint{
-      position:fixed;bottom:110px;right:36px;
-      display:flex;flex-direction:column;align-items:center;gap:8px;
-      z-index:300;pointer-events:none;
-      animation:hintIn 0.9s ease 0.5s both, hintOut 0.8s ease 5s forwards;
-    }
-    .chat-hint-text{
-      font-size:11px;letter-spacing:0.06em;
-      color:#666;text-align:center;line-height:1.6;
-    }
+    .chat-hint{position:fixed;bottom:110px;right:36px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:300;pointer-events:none;animation:hintIn 0.9s ease 0.5s both,hintOut 0.8s ease 5s forwards;}
+    .chat-hint-text{font-size:11px;letter-spacing:0.06em;color:#666;text-align:center;line-height:1.6;}
     .chat-hint-text strong{color:#c8c4bf;font-weight:500;}
     .chat-hint-line{width:1px;height:28px;background:linear-gradient(to bottom,#444,transparent);}
-    .chat-hint-chevron{
-      width:8px;height:8px;
-      border-right:1px solid #3a3a3a;
-      border-bottom:1px solid #3a3a3a;
-      transform:rotate(45deg);
-      margin-top:-6px;
-    }
+    .chat-hint-chevron{width:8px;height:8px;border-right:1px solid #3a3a3a;border-bottom:1px solid #3a3a3a;transform:rotate(45deg);margin-top:-6px;}
     @keyframes hintIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
     @keyframes hintOut{from{opacity:1;}to{opacity:0;}}
 
@@ -79,24 +62,8 @@
     @keyframes pulseRing{0%{transform:scale(1);opacity:0.5;}100%{transform:scale(1.45);opacity:0;}}
 
     /* ── CHAT WINDOW ── */
-    .chat-window{
-      position:fixed;bottom:96px;right:28px;
-      width:420px;height:560px;
-      min-width:300px;min-height:300px;
-      max-width:90vw;max-height:80vh;
-      background:#111;border:1px solid #252525;
-      border-radius:16px;
-      display:flex;flex-direction:column;
-      opacity:0;pointer-events:none;
-      transform:translateY(12px) scale(0.97);
-      transform-origin:bottom right;
-      transition:opacity 0.3s ease,transform 0.3s ease;
-      z-index:199;overflow:hidden;
-      resize:both;
-    }
+    .chat-window{position:fixed;bottom:96px;right:28px;width:420px;height:560px;min-width:300px;min-height:300px;max-width:90vw;max-height:80vh;background:#111;border:1px solid #252525;border-radius:16px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(12px) scale(0.97);transform-origin:bottom right;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;overflow:hidden;resize:both;}
     .chat-window.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
-
-    /* ── HEADER ── */
     .chat-header{padding:16px 20px;border-bottom:1px solid #1e1e1e;display:flex;align-items:center;gap:12px;flex-shrink:0;background:#111;cursor:move;user-select:none;}
     .chat-avatar{width:36px;height:36px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#666;flex-shrink:0;}
     .chat-name{font-size:14px;font-weight:600;color:#e8e4df;}
@@ -105,8 +72,6 @@
     .chat-model{font-size:9px;color:#1a3a1a;background:#0a1a0a;border:1px solid #1a2a1a;padding:3px 8px;border-radius:10px;margin-left:auto;letter-spacing:0.06em;}
     .chat-close{background:none;border:none;color:#333;cursor:pointer;font-size:20px;margin-left:8px;transition:color 0.2s;line-height:1;padding:2px 4px;}
     .chat-close:hover{color:#aaa;}
-
-    /* ── MESSAGES ── */
     .chat-messages{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;scrollbar-width:thin;scrollbar-color:#222 transparent;background:#111;}
     .chat-messages::-webkit-scrollbar{width:3px;}
     .chat-messages::-webkit-scrollbar-thumb{background:#222;border-radius:2px;}
@@ -117,25 +82,13 @@
     .msg.user .bubble{background:#1e1e1e;color:#d8d4cf;border-radius:14px 14px 2px 14px;}
     .msg.ai .bubble{background:#181818;color:#aaa8a4;border:1px solid #242424;border-radius:14px 14px 14px 2px;white-space:pre-wrap;}
     .msg-time{font-size:10px;color:#2a2a2a;letter-spacing:0.05em;}
-
-    /* ── MORPHING SHAPE LOADER ── */
     .ai-thinking{align-self:flex-start;padding:14px 18px;display:flex;align-items:center;gap:12px;}
     .morph-shape{width:18px;height:18px;background:#444;animation:morphing 2s ease-in-out infinite;}
-    @keyframes morphing{
-      0%{border-radius:50%;transform:scale(1);}
-      25%{border-radius:4px;transform:scale(0.9) rotate(45deg);}
-      50%{border-radius:50% 0 50% 0;transform:scale(1.05) rotate(90deg);}
-      75%{border-radius:0;transform:scale(0.9) rotate(135deg);}
-      100%{border-radius:50%;transform:scale(1) rotate(180deg);}
-    }
+    @keyframes morphing{0%{border-radius:50%;transform:scale(1);}25%{border-radius:4px;transform:scale(0.9) rotate(45deg);}50%{border-radius:50% 0 50% 0;transform:scale(1.05) rotate(90deg);}75%{border-radius:0;transform:scale(0.9) rotate(135deg);}100%{border-radius:50%;transform:scale(1) rotate(180deg);}}
     .ai-thinking-text{font-size:11px;color:#333;letter-spacing:0.08em;text-transform:uppercase;}
-
-    /* ── SUGGESTIONS ── */
     .chat-sugs{padding:0 18px 12px;display:flex;flex-wrap:wrap;gap:7px;flex-shrink:0;background:#111;}
     .sug{font-size:11px;letter-spacing:0.03em;color:#444;border:1px solid #1e1e1e;padding:6px 13px;border-radius:20px;cursor:pointer;background:none;font-family:inherit;transition:color 0.2s,border-color 0.2s;white-space:nowrap;}
     .sug:hover{color:#c8c4bf;border-color:#555;}
-
-    /* ── INPUT ── */
     .chat-input-row{padding:14px 18px;border-top:1px solid #1a1a1a;display:flex;gap:10px;align-items:center;flex-shrink:0;background:#111;}
     .chat-input{flex:1;background:#181818;border:1px solid #242424;color:#d8d4cf;font-family:inherit;font-size:14px;padding:10px 16px;border-radius:24px;outline:none;transition:border-color 0.2s;}
     .chat-input:focus{border-color:#3a3a3a;}
@@ -143,15 +96,48 @@
     .send-btn{width:36px;height:36px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a;color:#555;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
     .send-btn:hover{border-color:#777;color:#e8e4df;}
 
-    /* ── WELCOME SCREEN ── */
+    /* ── WELCOME ── */
     .welcome{position:fixed;inset:0;background:#0d0d0d;display:flex;align-items:center;justify-content:center;z-index:999;flex-direction:column;gap:20px;transition:opacity 0.7s ease;}
     .welcome.hidden{opacity:0;pointer-events:none;}
     .welcome-line{font-size:clamp(26px,3.8vw,42px);color:#e8e4df;font-weight:500;letter-spacing:-0.02em;min-height:1.4em;text-align:center;line-height:1.4;}
-    .welcome-sub{font-size:13px;letter-spacing:0.1em;color:#888;text-transform:uppercase;min-height:1.4em;text-align:center;transition:opacity 0.3s;}
+    .welcome-sub{font-size:13px;letter-spacing:0.1em;color:#888;text-transform:uppercase;min-height:1.4em;text-align:center;}
     .wcursor{display:inline-block;width:2px;height:0.9em;background:#e8e4df;margin-left:2px;vertical-align:text-bottom;animation:wblink 0.7s infinite;}
     @keyframes wblink{0%,100%{opacity:1;}50%{opacity:0;}}
     .skip-btn{position:fixed;bottom:32px;right:32px;font-size:10px;letter-spacing:0.1em;color:#444;text-transform:uppercase;cursor:pointer;background:none;border:none;font-family:inherit;transition:color 0.2s;}
     .skip-btn:hover{color:#888;}
+
+    /* ── GESTURE BUTTON ── */
+    .gesture-btn{position:fixed;bottom:28px;left:28px;width:56px;height:56px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
+    .gesture-btn:hover{border-color:#777;transform:scale(1.06);}
+    .gesture-btn.active{border-color:#4CAF50;}
+
+    /* ── GESTURE PANEL ── */
+    .gesture-panel{position:fixed;bottom:96px;left:28px;width:300px;background:#111;border:1px solid #252525;border-radius:16px;padding:20px;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;}
+    .gesture-panel.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
+    .gp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+    .gp-title{font-size:12px;font-weight:600;color:#e8e4df;letter-spacing:0.04em;}
+    .gp-status{font-size:10px;color:#333;display:flex;align-items:center;gap:6px;}
+    .gp-dot{width:6px;height:6px;border-radius:50%;background:#333;transition:background 0.3s;}
+    .gp-dot.on{background:#4CAF50;}
+    .gp-close{background:none;border:none;color:#333;cursor:pointer;font-size:16px;transition:color 0.2s;line-height:1;}
+    .gp-close:hover{color:#888;}
+    .cam-wrap{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;position:relative;background:#0a0a0a;margin-bottom:12px;display:none;}
+    #gestureCanvas{position:absolute;inset:0;width:100%;height:100%;}
+    #gestureVideo{width:100%;height:100%;object-fit:cover;display:block;transform:scaleX(-1);}
+    .enable-btn{width:100%;padding:9px;background:#1a1a1a;border:1px solid #252525;color:#666;font-family:inherit;font-size:12px;letter-spacing:0.06em;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
+    .enable-btn:hover{border-color:#4CAF50;color:#4CAF50;}
+    .enable-btn.running{border-color:#4CAF50;color:#4CAF50;background:#0a1a0a;}
+    .gesture-feedback{font-size:12px;color:#444;text-align:center;padding:9px;border:1px solid #1a1a1a;border-radius:8px;min-height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+    .gesture-feedback.active{color:#c8c4bf;}
+    .gesture-legend{display:flex;flex-direction:column;gap:8px;}
+    .gl-row{display:flex;align-items:center;gap:10px;}
+    .gl-icon{font-size:15px;width:22px;text-align:center;}
+    .gl-label{font-size:11px;color:#333;letter-spacing:0.03em;}
+    .gl-label span{color:#555;}
+
+    /* ── GESTURE TOAST ── */
+    .gesture-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);background:rgba(17,17,17,0.95);border:1px solid #252525;border-radius:12px;padding:14px 24px;font-size:16px;color:#e8e4df;z-index:500;opacity:0;pointer-events:none;transition:opacity 0.2s,transform 0.2s;text-align:center;letter-spacing:0.04em;}
+    .gesture-toast.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
   </style>
 </head>
 <body>
@@ -161,6 +147,7 @@
   <div class="welcome-sub" id="wsub"></div>
   <button class="skip-btn" id="skip-btn">skip intro</button>
 </div>
+
 <div style="background:#0d0d0d;width:100%;margin:0;padding:0;">
 <div class="site" id="site">
   <nav class="nav">
@@ -168,7 +155,6 @@
       <div class="nav-name">SIMEN<br>VANGEN</div>
       <div class="nav-role">Data Scientist<br>Embodied AI &amp; Robotics</div>
     </div>
-    
   </nav>
   <div class="stage" id="stage"></div>
   <div class="progress" id="progress"></div>
@@ -193,20 +179,20 @@
 </div>
 </div>
 
-<!-- ── CHAT HINT ── -->
+<!-- CHAT HINT -->
 <div class="chat-hint" id="chat-hint">
   <div class="chat-hint-text">Come chat with my<br><strong>AI Friend</strong></div>
   <div class="chat-hint-line"></div>
   <div class="chat-hint-chevron"></div>
 </div>
 
-<!-- ── CHAT BUTTON ── -->
+<!-- CHAT BUTTON -->
 <button class="chat-btn" id="chat-btn" title="Ask Simen's AI">
   <div class="chat-btn-pulse"></div>
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
 </button>
 
-<!-- ── CHAT WINDOW ── -->
+<!-- CHAT WINDOW -->
 <div class="chat-window" id="chat-window">
   <div class="chat-header">
     <div class="chat-avatar">SV</div>
@@ -234,6 +220,42 @@
     <button class="send-btn" id="send-btn">↑</button>
   </div>
 </div>
+
+<!-- GESTURE BUTTON -->
+<button class="gesture-btn" id="gesture-btn" title="Gesture control">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M6 14a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2.5"/>
+  </svg>
+</button>
+
+<!-- GESTURE PANEL -->
+<div class="gesture-panel" id="gesture-panel">
+  <div class="gp-header">
+    <span class="gp-title">Gesture Control</span>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="gp-status"><div class="gp-dot" id="gp-dot"></div><span id="gp-status-text">off</span></div>
+      <button class="gp-close" id="gp-close">×</button>
+    </div>
+  </div>
+  <button class="enable-btn" id="enable-btn">Enable camera</button>
+  <div class="cam-wrap" id="cam-wrap">
+    <video id="gestureVideo" autoplay playsinline muted></video>
+    <canvas id="gestureCanvas"></canvas>
+  </div>
+  <div class="gesture-feedback" id="gesture-feedback">Show your hand to begin</div>
+  <div class="gesture-legend">
+    <div class="gl-row"><span class="gl-icon">☝️</span><div class="gl-label">1 finger → <span>previous project</span></div></div>
+    <div class="gl-row"><span class="gl-icon">✌️</span><div class="gl-label">2 fingers → <span>next project</span></div></div>
+    <div class="gl-row"><span class="gl-icon">🖐</span><div class="gl-label">Open palm → <span>open chat</span></div></div>
+    <div class="gl-row"><span class="gl-icon">✊</span><div class="gl-label">Fist → <span>close chat</span></div></div>
+  </div>
+</div>
+
+<!-- GESTURE TOAST -->
+<div class="gesture-toast" id="gesture-toast"></div>
+
+<script src="mediapipe/hands.min.js"></script>
+<script src="mediapipe/camera_utils.min.js"></script>
 
 <script>
 const projects = [
@@ -275,6 +297,7 @@ const projects = [
   },
 ];
 
+/* ── CAROUSEL ── */
 const stage=document.getElementById('stage');
 const progressEl=document.getElementById('progress');
 const overlay=document.getElementById('overlay');
@@ -347,7 +370,7 @@ function openProject(idx){
   document.getElementById('ov-hero-img').src=p.img;
   document.getElementById('ov-heading').textContent=p.heading;
   document.getElementById('ov-desc').textContent=p.desc;
-  const ghLink = p.github ? `<a href="${p.github}" target="_blank" style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#4a8a4a;border:1px solid #1a2a1a;padding:5px 14px;border-radius:20px;text-decoration:none;">GitHub ↗</a>` : '';
+  const ghLink=p.github?`<a href="${p.github}" target="_blank" style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#4a8a4a;border:1px solid #1a2a1a;padding:5px 14px;border-radius:20px;text-decoration:none;">GitHub ↗</a>`:'';
   document.getElementById('ov-meta').innerHTML=`<span class="ov-tag">${p.tag}</span><span class="ov-tag">${p.year}</span><span class="ov-tag">${p.company}</span>${ghLink}`;
   const grid=document.getElementById('ov-media-grid'); grid.innerHTML='';
   p.media.forEach((src,mi)=>{ const im=document.createElement('img'); im.src=src; im.alt=''; if(mi===0&&p.media.length>=3) im.className='wide'; grid.appendChild(im); });
@@ -405,7 +428,7 @@ async function sendMessage(text){
     }
   }catch(e){
     hideTyping();
-    addMsg('ai','Could not reach the AI server. Make sure server.py is running at localhost:8000.');
+    addMsg('ai','Could not reach the AI server.');
   }
   chatLoading=false;
 }
@@ -445,28 +468,170 @@ async function sendMessage(text){
   run();
 })();
 
-/* ── DRAGGABLE CHAT WINDOW ── */
+/* ── DRAGGABLE CHAT ── */
 (function(){
-  const win = document.getElementById('chat-window');
-  const header = document.querySelector('.chat-header');
-  let isDragging=false, startX=0, startY=0, startLeft=0, startTop=0;
-  header.addEventListener('mousedown', e=>{
+  const win=document.getElementById('chat-window');
+  const header=document.querySelector('.chat-header');
+  let isDragging=false,startX=0,startY=0,startLeft=0,startTop=0;
+  header.addEventListener('mousedown',e=>{
     if(e.target.closest('.chat-close')) return;
     isDragging=true;
     const rect=win.getBoundingClientRect();
-    startX=e.clientX; startY=e.clientY;
-    startLeft=rect.left; startTop=rect.top;
-    win.style.right='auto'; win.style.bottom='auto';
-    win.style.left=startLeft+'px'; win.style.top=startTop+'px';
+    startX=e.clientX;startY=e.clientY;startLeft=rect.left;startTop=rect.top;
+    win.style.right='auto';win.style.bottom='auto';
+    win.style.left=startLeft+'px';win.style.top=startTop+'px';
     document.body.style.userSelect='none';
   });
-  document.addEventListener('mousemove', e=>{
-    if(!isDragging) return;
-    const dx=e.clientX-startX, dy=e.clientY-startY;
-    win.style.left=Math.max(0,startLeft+dx)+'px';
-    win.style.top=Math.max(0,startTop+dy)+'px';
-  });
-  document.addEventListener('mouseup', ()=>{ isDragging=false; document.body.style.userSelect=''; });
+  document.addEventListener('mousemove',e=>{ if(!isDragging) return; win.style.left=Math.max(0,startLeft+(e.clientX-startX))+'px'; win.style.top=Math.max(0,startTop+(e.clientY-startY))+'px'; });
+  document.addEventListener('mouseup',()=>{ isDragging=false; document.body.style.userSelect=''; });
+})();
+
+/* ── GESTURE CONTROL (MediaPipe) ── */
+(function(){
+  const gestureBtn  = document.getElementById('gesture-btn');
+  const gesturePanel= document.getElementById('gesture-panel');
+  const gpClose     = document.getElementById('gp-close');
+  const enableBtn   = document.getElementById('enable-btn');
+  const camWrap     = document.getElementById('cam-wrap');
+  const video       = document.getElementById('gestureVideo');
+  const canvas      = document.getElementById('gestureCanvas');
+  const ctx         = canvas.getContext('2d');
+  const feedback    = document.getElementById('gesture-feedback');
+  const gpDot       = document.getElementById('gp-dot');
+  const gpStatus    = document.getElementById('gp-status-text');
+  const toast       = document.getElementById('gesture-toast');
+
+  let running=false, gestureCooldown=false, lastGesture='', mpHands=null, camera=null;
+
+  gestureBtn.addEventListener('click',()=> gesturePanel.classList.toggle('open'));
+  gpClose.addEventListener('click',()=> gesturePanel.classList.remove('open'));
+  enableBtn.addEventListener('click',()=>{ running ? stopCamera() : startCamera(); });
+
+  function showToast(text){
+    toast.textContent=text;
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),1200);
+  }
+
+  function setStatus(on){
+    running=on;
+    gpDot.classList.toggle('on',on);
+    gpStatus.textContent=on?'active':'off';
+    gestureBtn.classList.toggle('active',on);
+    enableBtn.textContent=on?'Disable camera':'Enable camera';
+    enableBtn.classList.toggle('running',on);
+    camWrap.style.display=on?'block':'none';
+    if(!on) feedback.textContent='Show your hand to begin';
+  }
+
+  function startCamera(){
+    enableBtn.textContent='Loading...';
+    enableBtn.disabled=true;
+
+    mpHands = new Hands({locateFile: f=>`mediapipe/${f}`});
+    mpHands.setOptions({maxNumHands:1, modelComplexity:0, minDetectionConfidence:0.6, minTrackingConfidence:0.5});
+    mpHands.onResults(onResults);
+
+    camera = new Camera(video, {
+      onFrame: async()=>{ await mpHands.send({image:video}); },
+      width:320, height:240
+    });
+
+    camera.start().then(()=>{
+      canvas.width=320; canvas.height=240;
+      enableBtn.disabled=false;
+      setStatus(true);
+      feedback.textContent='Show your hand ✋';
+    }).catch(()=>{
+      enableBtn.textContent='Camera denied';
+      enableBtn.disabled=false;
+      feedback.textContent='Could not access camera';
+    });
+  }
+
+  function stopCamera(){
+    if(camera) camera.stop();
+    if(mpHands) mpHands.close();
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    setStatus(false);
+  }
+
+  function onResults(results){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(!results.multiHandLandmarks || results.multiHandLandmarks.length===0){
+      feedback.textContent='Show your hand ✋';
+      feedback.classList.remove('active');
+      lastGesture='';
+      return;
+    }
+    const lm = results.multiHandLandmarks[0];
+    const kp = lm.map(p=>({x:p.x*320, y:p.y*240}));
+    drawHand(kp);
+    const gesture=classifyGesture(kp);
+    if(gesture&&gesture!==lastGesture&&!gestureCooldown){
+      lastGesture=gesture;
+      triggerGesture(gesture);
+      gestureCooldown=true;
+      setTimeout(()=>{ gestureCooldown=false; lastGesture=''; gestureHistory.length=0; },2200);
+    }
+    feedback.textContent = gesture ? gestureLabel(gesture) : 'Hand detected ✋';
+    feedback.classList.toggle('active', !!gesture);
+  }
+
+  function drawHand(kp){
+    ctx.fillStyle='rgba(200,196,191,0.9)';
+    kp.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,3,0,Math.PI*2); ctx.fill(); });
+    [[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20]].forEach(([a,b])=>{
+      ctx.beginPath(); ctx.strokeStyle='rgba(200,196,191,0.3)'; ctx.lineWidth=1.5;
+      ctx.moveTo(kp[a].x,kp[a].y); ctx.lineTo(kp[b].x,kp[b].y); ctx.stroke();
+    });
+  }
+
+  /* Gesture history — hold for N frames before firing */
+  const gestureHistory=[];
+  const HOLD_FRAMES=10;
+
+  function isUp(tip, mid){ return tip.y < mid.y - 18; }
+
+  function classifyGesture(kp){
+    const i = isUp(kp[8], kp[6]);   /* index */
+    const m = isUp(kp[12],kp[10]);  /* middle */
+    const r = isUp(kp[16],kp[14]);  /* ring */
+    const p = isUp(kp[20],kp[18]);  /* pinky */
+
+    let raw = null;
+
+    /* FIST — nothing up */
+    if(!i && !m && !r && !p)            raw = 'fist';
+    /* ONE — only index */
+    else if(i && !m && !r && !p)        raw = 'one';
+    /* TWO — index + middle only */
+    else if(i && m && !r && !p)         raw = 'two';
+    /* PALM — all four up */
+    else if(i && m && r && p)           raw = 'palm';
+
+    gestureHistory.push(raw);
+    if(gestureHistory.length > HOLD_FRAMES) gestureHistory.shift();
+    if(gestureHistory.length < HOLD_FRAMES) return null;
+    const allSame = gestureHistory.every(g => g === raw);
+    return allSame && raw ? raw : null;
+  }
+
+  function gestureLabel(g){
+    return {
+      one:  '☝️ Previous project',
+      two:  '✌️ Next project',
+      palm: '🖐 Open chat',
+      fist: '✊ Close chat'
+    }[g]||'';
+  }
+
+  function triggerGesture(g){
+    if(g==='two'){  goNext(); showToast('✌️ Next project'); }
+    if(g==='one'){  goPrev(); showToast('☝️ Previous project'); }
+    if(g==='palm'){ chatWin.classList.add('open'); hint.style.display='none'; showToast('🖐 Chat opened'); }
+    if(g==='fist'){ chatWin.classList.remove('open'); showToast('✊ Chat closed'); }
+  }
 })();
 </script>
 </body>
