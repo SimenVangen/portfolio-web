@@ -55,6 +55,13 @@
     @keyframes hintIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
     @keyframes hintOut{from{opacity:1;}to{opacity:0;}}
 
+    /* ── GESTURE HINT ── */
+    .gesture-hint{position:fixed;bottom:110px;left:36px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:300;pointer-events:none;animation:hintIn 0.9s ease 1.5s both,hintOut 0.8s ease 6.5s forwards;}
+    .gesture-hint-text{font-size:11px;letter-spacing:0.06em;color:#666;text-align:center;line-height:1.6;}
+    .gesture-hint-text strong{color:#c8c4bf;font-weight:500;}
+    .gesture-hint-line{width:1px;height:28px;background:linear-gradient(to bottom,#444,transparent);}
+    .gesture-hint-chevron{width:8px;height:8px;border-right:1px solid #3a3a3a;border-bottom:1px solid #3a3a3a;transform:rotate(45deg);margin-top:-6px;}
+
     /* ── CHAT BUTTON ── */
     .chat-btn{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
     .chat-btn:hover{border-color:#777;transform:scale(1.06);}
@@ -107,16 +114,16 @@
     .skip-btn:hover{color:#888;}
 
     /* ── GESTURE BUTTON ── */
-    .gesture-btn{position:fixed;bottom:28px;left:28px;width:56px;height:56px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
+    .gesture-btn{position:fixed;bottom:24px;left:24px;width:64px;height:64px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
     .gesture-btn:hover{border-color:#777;transform:scale(1.06);}
     .gesture-btn.active{border-color:#4CAF50;}
 
     /* ── GESTURE PANEL ── */
-    .gesture-panel{position:fixed;bottom:96px;left:28px;width:300px;background:#111;border:1px solid #252525;border-radius:16px;padding:20px;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;}
+    .gesture-panel{position:fixed;bottom:96px;left:28px;width:340px;background:#111;border:1px solid #252525;border-radius:16px;padding:22px;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;}
     .gesture-panel.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
     .gp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-    .gp-title{font-size:12px;font-weight:600;color:#e8e4df;letter-spacing:0.04em;}
-    .gp-status{font-size:10px;color:#333;display:flex;align-items:center;gap:6px;}
+    .gp-title{font-size:13px;font-weight:600;color:#e8e4df;letter-spacing:0.04em;}
+    .gp-status{font-size:11px;color:#666;display:flex;align-items:center;gap:6px;}
     .gp-dot{width:6px;height:6px;border-radius:50%;background:#333;transition:background 0.3s;}
     .gp-dot.on{background:#4CAF50;}
     .gp-close{background:none;border:none;color:#333;cursor:pointer;font-size:16px;transition:color 0.2s;line-height:1;}
@@ -124,16 +131,16 @@
     .cam-wrap{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;position:relative;background:#0a0a0a;margin-bottom:12px;display:none;}
     #gestureCanvas{position:absolute;inset:0;width:100%;height:100%;}
     #gestureVideo{width:100%;height:100%;object-fit:cover;display:block;transform:scaleX(-1);}
-    .enable-btn{width:100%;padding:9px;background:#1a1a1a;border:1px solid #252525;color:#666;font-family:inherit;font-size:12px;letter-spacing:0.06em;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
+    .enable-btn{width:100%;padding:11px;background:#1a1a1a;border:1px solid #252525;color:#888;font-family:inherit;font-size:13px;letter-spacing:0.06em;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
     .enable-btn:hover{border-color:#4CAF50;color:#4CAF50;}
     .enable-btn.running{border-color:#4CAF50;color:#4CAF50;background:#0a1a0a;}
-    .gesture-feedback{font-size:12px;color:#444;text-align:center;padding:9px;border:1px solid #1a1a1a;border-radius:8px;min-height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
-    .gesture-feedback.active{color:#c8c4bf;}
+    .gesture-feedback{font-size:13px;color:#666;text-align:center;padding:10px;border:1px solid #252525;border-radius:8px;min-height:38px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+    .gesture-feedback.active{color:#e8e4df;}
     .gesture-legend{display:flex;flex-direction:column;gap:8px;}
     .gl-row{display:flex;align-items:center;gap:10px;}
     .gl-icon{font-size:15px;width:22px;text-align:center;}
-    .gl-label{font-size:11px;color:#333;letter-spacing:0.03em;}
-    .gl-label span{color:#555;}
+    .gl-label{font-size:12px;color:#888;letter-spacing:0.03em;}
+    .gl-label span{color:#c8c4bf;}
 
     /* ── GESTURE TOAST ── */
     .gesture-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);background:rgba(17,17,17,0.95);border:1px solid #252525;border-radius:12px;padding:14px 24px;font-size:16px;color:#e8e4df;z-index:500;opacity:0;pointer-events:none;transition:opacity 0.2s,transform 0.2s;text-align:center;letter-spacing:0.04em;}
@@ -184,6 +191,13 @@
   <div class="chat-hint-text">Come chat with my<br><strong>AI Friend</strong></div>
   <div class="chat-hint-line"></div>
   <div class="chat-hint-chevron"></div>
+</div>
+
+<!-- GESTURE HINT -->
+<div class="gesture-hint" id="gesture-hint">
+  <div class="gesture-hint-text">Try<br><strong>Gesture Control</strong></div>
+  <div class="gesture-hint-line"></div>
+  <div class="gesture-hint-chevron"></div>
 </div>
 
 <!-- CHAT BUTTON -->
@@ -503,7 +517,11 @@ async function sendMessage(text){
 
   let running=false, gestureCooldown=false, lastGesture='', mpHands=null, camera=null;
 
-  gestureBtn.addEventListener('click',()=> gesturePanel.classList.toggle('open'));
+  gestureBtn.addEventListener('click',()=>{
+    gesturePanel.classList.toggle('open');
+    const gh=document.getElementById('gesture-hint');
+    if(gh) gh.style.display='none';
+  });
   gpClose.addEventListener('click',()=> gesturePanel.classList.remove('open'));
   enableBtn.addEventListener('click',()=>{ running ? stopCamera() : startCamera(); });
 
