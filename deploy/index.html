@@ -55,13 +55,6 @@
     @keyframes hintIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
     @keyframes hintOut{from{opacity:1;}to{opacity:0;}}
 
-    /* ── GESTURE HINT ── */
-    .gesture-hint{position:fixed;bottom:110px;left:36px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:300;pointer-events:none;animation:hintIn 0.9s ease 1.5s both,hintOut 0.8s ease 6.5s forwards;}
-    .gesture-hint-text{font-size:11px;letter-spacing:0.06em;color:#666;text-align:center;line-height:1.6;}
-    .gesture-hint-text strong{color:#c8c4bf;font-weight:500;}
-    .gesture-hint-line{width:1px;height:28px;background:linear-gradient(to bottom,#444,transparent);}
-    .gesture-hint-chevron{width:8px;height:8px;border-right:1px solid #3a3a3a;border-bottom:1px solid #3a3a3a;transform:rotate(45deg);margin-top:-6px;}
-
     /* ── CHAT BUTTON ── */
     .chat-btn{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
     .chat-btn:hover{border-color:#777;transform:scale(1.06);}
@@ -114,16 +107,16 @@
     .skip-btn:hover{color:#888;}
 
     /* ── GESTURE BUTTON ── */
-    .gesture-btn{position:fixed;bottom:24px;left:24px;width:64px;height:64px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
+    .gesture-btn{position:fixed;bottom:28px;left:28px;width:56px;height:56px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
     .gesture-btn:hover{border-color:#777;transform:scale(1.06);}
     .gesture-btn.active{border-color:#4CAF50;}
 
     /* ── GESTURE PANEL ── */
-    .gesture-panel{position:fixed;bottom:96px;left:28px;width:340px;background:#111;border:1px solid #252525;border-radius:16px;padding:22px;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;}
+    .gesture-panel{position:fixed;bottom:96px;left:28px;width:300px;background:#111;border:1px solid #252525;border-radius:16px;padding:20px;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;}
     .gesture-panel.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
     .gp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-    .gp-title{font-size:13px;font-weight:600;color:#e8e4df;letter-spacing:0.04em;}
-    .gp-status{font-size:11px;color:#666;display:flex;align-items:center;gap:6px;}
+    .gp-title{font-size:12px;font-weight:600;color:#e8e4df;letter-spacing:0.04em;}
+    .gp-status{font-size:10px;color:#333;display:flex;align-items:center;gap:6px;}
     .gp-dot{width:6px;height:6px;border-radius:50%;background:#333;transition:background 0.3s;}
     .gp-dot.on{background:#4CAF50;}
     .gp-close{background:none;border:none;color:#333;cursor:pointer;font-size:16px;transition:color 0.2s;line-height:1;}
@@ -131,16 +124,16 @@
     .cam-wrap{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;position:relative;background:#0a0a0a;margin-bottom:12px;display:none;}
     #gestureCanvas{position:absolute;inset:0;width:100%;height:100%;}
     #gestureVideo{width:100%;height:100%;object-fit:cover;display:block;transform:scaleX(-1);}
-    .enable-btn{width:100%;padding:11px;background:#1a1a1a;border:1px solid #252525;color:#888;font-family:inherit;font-size:13px;letter-spacing:0.06em;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
+    .enable-btn{width:100%;padding:9px;background:#1a1a1a;border:1px solid #252525;color:#666;font-family:inherit;font-size:12px;letter-spacing:0.06em;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
     .enable-btn:hover{border-color:#4CAF50;color:#4CAF50;}
     .enable-btn.running{border-color:#4CAF50;color:#4CAF50;background:#0a1a0a;}
-    .gesture-feedback{font-size:13px;color:#666;text-align:center;padding:10px;border:1px solid #252525;border-radius:8px;min-height:38px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
-    .gesture-feedback.active{color:#e8e4df;}
+    .gesture-feedback{font-size:12px;color:#444;text-align:center;padding:9px;border:1px solid #1a1a1a;border-radius:8px;min-height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+    .gesture-feedback.active{color:#c8c4bf;}
     .gesture-legend{display:flex;flex-direction:column;gap:8px;}
     .gl-row{display:flex;align-items:center;gap:10px;}
     .gl-icon{font-size:15px;width:22px;text-align:center;}
-    .gl-label{font-size:12px;color:#888;letter-spacing:0.03em;}
-    .gl-label span{color:#c8c4bf;}
+    .gl-label{font-size:11px;color:#333;letter-spacing:0.03em;}
+    .gl-label span{color:#555;}
 
     /* ── GESTURE TOAST ── */
     .gesture-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);background:rgba(17,17,17,0.95);border:1px solid #252525;border-radius:12px;padding:14px 24px;font-size:16px;color:#e8e4df;z-index:500;opacity:0;pointer-events:none;transition:opacity 0.2s,transform 0.2s;text-align:center;letter-spacing:0.04em;}
@@ -191,13 +184,6 @@
   <div class="chat-hint-text">Come chat with my<br><strong>AI Friend</strong></div>
   <div class="chat-hint-line"></div>
   <div class="chat-hint-chevron"></div>
-</div>
-
-<!-- GESTURE HINT -->
-<div class="gesture-hint" id="gesture-hint">
-  <div class="gesture-hint-text">Try<br><strong>Gesture Control</strong></div>
-  <div class="gesture-hint-line"></div>
-  <div class="gesture-hint-chevron"></div>
 </div>
 
 <!-- CHAT BUTTON -->
@@ -258,9 +244,9 @@
   </div>
   <div class="gesture-feedback" id="gesture-feedback">Show your hand to begin</div>
   <div class="gesture-legend">
-    <div class="gl-row"><span class="gl-icon">☝️</span><div class="gl-label">1 finger → <span>previous project</span></div></div>
-    <div class="gl-row"><span class="gl-icon">✌️</span><div class="gl-label">2 fingers → <span>next project</span></div></div>
-    <div class="gl-row"><span class="gl-icon">🖐</span><div class="gl-label">Open palm → <span>open chat</span></div></div>
+    <div class="gl-row"><span class="gl-icon">👇</span><div class="gl-label">Fingers down → <span>next project</span></div></div>
+    <div class="gl-row"><span class="gl-icon">👆</span><div class="gl-label">Fingers up → <span>previous project</span></div></div>
+    <div class="gl-row"><span class="gl-icon">⌨️</span><div class="gl-label">Typing motion → <span>open chat</span></div></div>
     <div class="gl-row"><span class="gl-icon">✊</span><div class="gl-label">Fist → <span>close chat</span></div></div>
   </div>
 </div>
@@ -268,8 +254,8 @@
 <!-- GESTURE TOAST -->
 <div class="gesture-toast" id="gesture-toast"></div>
 
-<script src="mediapipe/hands.min.js"></script>
-<script src="mediapipe/camera_utils.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.1/dist/hand-pose-detection.min.js"></script>
 
 <script>
 const projects = [
@@ -500,7 +486,7 @@ async function sendMessage(text){
   document.addEventListener('mouseup',()=>{ isDragging=false; document.body.style.userSelect=''; });
 })();
 
-/* ── GESTURE CONTROL (MediaPipe) ── */
+/* ── GESTURE CONTROL ── */
 (function(){
   const gestureBtn  = document.getElementById('gesture-btn');
   const gesturePanel= document.getElementById('gesture-panel');
@@ -515,140 +501,123 @@ async function sendMessage(text){
   const gpStatus    = document.getElementById('gp-status-text');
   const toast       = document.getElementById('gesture-toast');
 
-  let running=false, gestureCooldown=false, lastGesture='', mpHands=null, camera=null;
+  let detector=null, running=false, gestureCooldown=false, lastGesture='';
 
-  gestureBtn.addEventListener('click',()=>{
-    gesturePanel.classList.toggle('open');
-    const gh=document.getElementById('gesture-hint');
-    if(gh) gh.style.display='none';
-  });
+  gestureBtn.addEventListener('click',()=> gesturePanel.classList.toggle('open'));
   gpClose.addEventListener('click',()=> gesturePanel.classList.remove('open'));
-  enableBtn.addEventListener('click',()=>{ running ? stopCamera() : startCamera(); });
+
+  enableBtn.addEventListener('click', async()=>{
+    if(running){ stopCamera(); return; }
+    await startCamera();
+  });
 
   function showToast(text){
     toast.textContent=text;
     toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'),1200);
+    setTimeout(()=> toast.classList.remove('show'), 1200);
   }
 
-  function setStatus(on){
-    running=on;
-    gpDot.classList.toggle('on',on);
-    gpStatus.textContent=on?'active':'off';
-    gestureBtn.classList.toggle('active',on);
-    enableBtn.textContent=on?'Disable camera':'Enable camera';
-    enableBtn.classList.toggle('running',on);
-    camWrap.style.display=on?'block':'none';
-    if(!on) feedback.textContent='Show your hand to begin';
-  }
-
-  function startCamera(){
-    enableBtn.textContent='Loading...';
-    enableBtn.disabled=true;
-
-    mpHands = new Hands({locateFile: f=>`mediapipe/${f}`});
-    mpHands.setOptions({maxNumHands:1, modelComplexity:0, minDetectionConfidence:0.6, minTrackingConfidence:0.5});
-    mpHands.onResults(onResults);
-
-    camera = new Camera(video, {
-      onFrame: async()=>{ await mpHands.send({image:video}); },
-      width:320, height:240
-    });
-
-    camera.start().then(()=>{
-      canvas.width=320; canvas.height=240;
+  async function startCamera(){
+    try{
+      enableBtn.textContent='Loading model...';
+      enableBtn.disabled=true;
+      const stream=await navigator.mediaDevices.getUserMedia({video:{width:320,height:240}});
+      video.srcObject=stream;
+      await new Promise(r=> video.onloadedmetadata=r);
+      canvas.width=video.videoWidth;
+      canvas.height=video.videoHeight;
+      camWrap.style.display='block';
+      detector=await handPoseDetection.createDetector(
+        handPoseDetection.SupportedModels.MediaPipeHands,
+        {runtime:'tfjs',modelType:'lite',maxHands:1}
+      );
+      running=true;
+      enableBtn.textContent='Disable camera';
       enableBtn.disabled=false;
-      setStatus(true);
+      enableBtn.classList.add('running');
+      gpDot.classList.add('on');
+      gpStatus.textContent='active';
+      gestureBtn.classList.add('active');
       feedback.textContent='Show your hand ✋';
-    }).catch(()=>{
-      enableBtn.textContent='Camera denied';
+      detect();
+    }catch(e){
+      enableBtn.textContent='Camera access denied';
       enableBtn.disabled=false;
       feedback.textContent='Could not access camera';
-    });
+    }
   }
 
   function stopCamera(){
-    if(camera) camera.stop();
-    if(mpHands) mpHands.close();
+    running=false;
+    if(video.srcObject) video.srcObject.getTracks().forEach(t=>t.stop());
+    camWrap.style.display='none';
+    enableBtn.textContent='Enable camera';
+    enableBtn.classList.remove('running');
+    gpDot.classList.remove('on');
+    gpStatus.textContent='off';
+    gestureBtn.classList.remove('active');
+    feedback.textContent='Show your hand to begin';
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    setStatus(false);
   }
 
-  function onResults(results){
+  async function detect(){
+    if(!running) return;
+    const hands=await detector.estimateHands(video,{flipHorizontal:true});
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    if(!results.multiHandLandmarks || results.multiHandLandmarks.length===0){
+    if(hands.length>0){
+      const kp=hands[0].keypoints;
+      drawHand(kp);
+      const gesture=classifyGesture(kp);
+      if(gesture&&gesture!==lastGesture&&!gestureCooldown){
+        lastGesture=gesture;
+        triggerGesture(gesture);
+        gestureCooldown=true;
+        setTimeout(()=>{ gestureCooldown=false; lastGesture=''; },1400);
+      }
+      if(gesture){ feedback.textContent=gestureLabel(gesture); feedback.classList.add('active'); }
+      else{ feedback.textContent='Hand detected ✋'; feedback.classList.remove('active'); }
+    }else{
       feedback.textContent='Show your hand ✋';
       feedback.classList.remove('active');
       lastGesture='';
-      return;
     }
-    const lm = results.multiHandLandmarks[0];
-    const kp = lm.map(p=>({x:p.x*320, y:p.y*240}));
-    drawHand(kp);
-    const gesture=classifyGesture(kp);
-    if(gesture&&gesture!==lastGesture&&!gestureCooldown){
-      lastGesture=gesture;
-      triggerGesture(gesture);
-      gestureCooldown=true;
-      setTimeout(()=>{ gestureCooldown=false; lastGesture=''; gestureHistory.length=0; },2200);
-    }
-    feedback.textContent = gesture ? gestureLabel(gesture) : 'Hand detected ✋';
-    feedback.classList.toggle('active', !!gesture);
+    requestAnimationFrame(detect);
   }
 
   function drawHand(kp){
-    ctx.fillStyle='rgba(200,196,191,0.9)';
+    ctx.fillStyle='rgba(200,196,191,0.8)';
     kp.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,3,0,Math.PI*2); ctx.fill(); });
-    [[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20]].forEach(([a,b])=>{
-      ctx.beginPath(); ctx.strokeStyle='rgba(200,196,191,0.3)'; ctx.lineWidth=1.5;
-      ctx.moveTo(kp[a].x,kp[a].y); ctx.lineTo(kp[b].x,kp[b].y); ctx.stroke();
-    });
+    const conn=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20]];
+    ctx.strokeStyle='rgba(200,196,191,0.25)'; ctx.lineWidth=1;
+    conn.forEach(([a,b])=>{ ctx.beginPath(); ctx.moveTo(kp[a].x,kp[a].y); ctx.lineTo(kp[b].x,kp[b].y); ctx.stroke(); });
   }
 
-  /* Gesture history — hold for N frames before firing */
-  const gestureHistory=[];
-  const HOLD_FRAMES=10;
-
-  function isUp(tip, mid){ return tip.y < mid.y - 18; }
-
   function classifyGesture(kp){
-    const i = isUp(kp[8], kp[6]);   /* index */
-    const m = isUp(kp[12],kp[10]);  /* middle */
-    const r = isUp(kp[16],kp[14]);  /* ring */
-    const p = isUp(kp[20],kp[18]);  /* pinky */
-
-    let raw = null;
-
-    /* FIST — nothing up */
-    if(!i && !m && !r && !p)            raw = 'fist';
-    /* ONE — only index */
-    else if(i && !m && !r && !p)        raw = 'one';
-    /* TWO — index + middle only */
-    else if(i && m && !r && !p)         raw = 'two';
-    /* PALM — all four up */
-    else if(i && m && r && p)           raw = 'palm';
-
-    gestureHistory.push(raw);
-    if(gestureHistory.length > HOLD_FRAMES) gestureHistory.shift();
-    if(gestureHistory.length < HOLD_FRAMES) return null;
-    const allSame = gestureHistory.every(g => g === raw);
-    return allSame && raw ? raw : null;
+    const tips =[kp[8],kp[12],kp[16],kp[20]];
+    const mids =[kp[6],kp[10],kp[14],kp[18]];
+    const bases=[kp[5],kp[9], kp[13],kp[17]];
+    const allUp  =tips.every((t,i)=> t.y < mids[i].y-15);
+    const allDown=tips.every((t,i)=> t.y > mids[i].y+15);
+    const isFist =tips.every((t,i)=> t.y > bases[i].y);
+    const spreadX=Math.max(...tips.map(t=>t.x))-Math.min(...tips.map(t=>t.x));
+    const spreadY=Math.max(...tips.map(t=>t.y))-Math.min(...tips.map(t=>t.y));
+    const isTyping=spreadX>60&&spreadY<40&&!allUp&&!allDown&&!isFist;
+    if(isFist)   return 'fist';
+    if(allUp)    return 'up';
+    if(allDown)  return 'down';
+    if(isTyping) return 'typing';
+    return null;
   }
 
   function gestureLabel(g){
-    return {
-      one:  '☝️ Previous project',
-      two:  '✌️ Next project',
-      palm: '🖐 Open chat',
-      fist: '✊ Close chat'
-    }[g]||'';
+    return {up:'👆 Previous project',down:'👇 Next project',typing:'⌨️ Opening chat...',fist:'✊ Closing chat...'}[g]||'';
   }
 
   function triggerGesture(g){
-    if(g==='two'){  goNext(); showToast('✌️ Next project'); }
-    if(g==='one'){  goPrev(); showToast('☝️ Previous project'); }
-    if(g==='palm'){ chatWin.classList.add('open'); hint.style.display='none'; showToast('🖐 Chat opened'); }
-    if(g==='fist'){ chatWin.classList.remove('open'); showToast('✊ Chat closed'); }
+    if(g==='down'){ goNext(); showToast('👇 Next project'); }
+    if(g==='up'){   goPrev(); showToast('👆 Previous project'); }
+    if(g==='typing'){ chatWin.classList.add('open'); hint.style.display='none'; showToast('⌨️ Chat opened'); }
+    if(g==='fist'){   chatWin.classList.remove('open'); showToast('✊ Chat closed'); }
   }
 })();
 </script>
