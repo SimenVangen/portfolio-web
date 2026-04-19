@@ -26,6 +26,8 @@
     .prog-dot{width:3px;height:3px;border-radius:50%;background:#1e1e1e;transition:background 0.4s,transform 0.4s;}
     .prog-dot.active{background:#c8c4bf;transform:scale(1.6);}
     .star{position:absolute;bottom:14px;right:48px;font-size:14px;color:#1e1e1e;z-index:20;}
+
+    /* ── PROJECT OVERLAY ── */
     .overlay{position:absolute;inset:0;background:#0d0d0d;z-index:50;opacity:0;pointer-events:none;transition:opacity 0.45s ease;overflow-y:auto;cursor:default;}
     .overlay.open{opacity:1;pointer-events:auto;}
     .overlay-inner{min-height:100%;padding:0 0 80px;background:#0d0d0d;}
@@ -46,23 +48,44 @@
     .ov-media-grid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;display:block;}
     .ov-media-grid img.wide{grid-column:1/-1;aspect-ratio:16/7;}
 
-    /* ── CHAT HINT ── */
+    /* ── WELCOME ── */
+    .welcome{position:fixed;inset:0;background:#0d0d0d;display:flex;align-items:center;justify-content:center;z-index:999;flex-direction:column;gap:20px;transition:opacity 0.7s ease;}
+    .welcome.hidden{opacity:0;pointer-events:none;}
+    .welcome-line{font-size:clamp(26px,3.8vw,42px);color:#e8e4df;font-weight:500;letter-spacing:-0.02em;min-height:1.4em;text-align:center;line-height:1.4;}
+    .welcome-sub{font-size:13px;letter-spacing:0.1em;color:#888;text-transform:uppercase;min-height:1.4em;text-align:center;}
+    .wcursor{display:inline-block;width:2px;height:0.9em;background:#e8e4df;margin-left:2px;vertical-align:text-bottom;animation:wblink 0.7s infinite;}
+    @keyframes wblink{0%,100%{opacity:1;}50%{opacity:0;}}
+    .skip-btn{position:fixed;bottom:32px;right:32px;font-size:10px;letter-spacing:0.1em;color:#444;text-transform:uppercase;cursor:pointer;background:none;border:none;font-family:inherit;transition:color 0.2s;}
+    .skip-btn:hover{color:#888;}
+
+    /* ── HINTS ── */
     .chat-hint{position:fixed;bottom:110px;right:36px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:300;pointer-events:none;animation:hintIn 0.9s ease 0.5s both,hintOut 0.8s ease 5s forwards;}
-    .chat-hint-text{font-size:11px;letter-spacing:0.06em;color:#666;text-align:center;line-height:1.6;}
-    .chat-hint-text strong{color:#c8c4bf;font-weight:500;}
-    .chat-hint-line{width:1px;height:28px;background:linear-gradient(to bottom,#444,transparent);}
-    .chat-hint-chevron{width:8px;height:8px;border-right:1px solid #3a3a3a;border-bottom:1px solid #3a3a3a;transform:rotate(45deg);margin-top:-6px;}
+    .gesture-hint{position:fixed;bottom:44px;left:110px;display:flex;flex-direction:row;align-items:center;gap:8px;z-index:300;pointer-events:none;animation:hintIn 0.9s ease 1.5s both,hintOut 0.8s ease 6.5s forwards;}
+    .hint-text{font-size:11px;letter-spacing:0.06em;color:#666;text-align:center;line-height:1.6;}
+    .hint-text strong{color:#c8c4bf;font-weight:500;}
+    .hint-line-v{width:1px;height:28px;background:linear-gradient(to bottom,#444,transparent);}
+    .hint-line-h{height:1px;width:28px;background:linear-gradient(to left,#444,transparent);}
+    .hint-chevron-d{width:8px;height:8px;border-right:1px solid #3a3a3a;border-bottom:1px solid #3a3a3a;transform:rotate(45deg);margin-top:-6px;}
+    .hint-chevron-l{width:8px;height:8px;border-left:1px solid #3a3a3a;border-bottom:1px solid #3a3a3a;transform:rotate(45deg);}
     @keyframes hintIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
     @keyframes hintOut{from{opacity:1;}to{opacity:0;}}
 
-    /* ── CHAT BUTTON ── */
-    .chat-btn{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
-    .chat-btn:hover{border-color:#777;transform:scale(1.06);}
-    .chat-btn-pulse{position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(200,196,191,0.12);animation:pulseRing 2.8s ease-out infinite;pointer-events:none;}
+    /* ── BOTTOM BUTTONS ── */
+    .fab{position:fixed;width:64px;height:64px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
+    .fab:hover{border-color:#777;transform:scale(1.06);}
+    .fab-pulse{position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(200,196,191,0.12);animation:pulseRing 2.8s ease-out infinite;pointer-events:none;}
     @keyframes pulseRing{0%{transform:scale(1);opacity:0.5;}100%{transform:scale(1.45);opacity:0;}}
+    .fab-label{position:fixed;font-size:10px;letter-spacing:0.08em;color:#444;text-transform:uppercase;pointer-events:none;z-index:199;text-align:center;}
+    #chat-btn{bottom:24px;right:24px;}
+    #gesture-btn{bottom:24px;left:24px;}
+    #gesture-btn.active{border-color:#4CAF50;}
+    #roast-btn{bottom:100px;left:24px;z-index:198;}
+    #label-chat{bottom:92px;right:24px;width:64px;}
+    #label-gesture{bottom:92px;left:24px;width:64px;}
+    #label-roast{bottom:168px;left:24px;width:64px;z-index:198;}
 
     /* ── CHAT WINDOW ── */
-    .chat-window{position:fixed;bottom:96px;right:28px;width:420px;height:560px;min-width:300px;min-height:300px;max-width:90vw;max-height:80vh;background:#111;border:1px solid #252525;border-radius:16px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(12px) scale(0.97);transform-origin:bottom right;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;overflow:hidden;resize:both;}
+    .chat-window{position:fixed;bottom:100px;right:24px;width:420px;height:560px;min-width:300px;min-height:300px;max-width:90vw;max-height:80vh;background:#111;border:1px solid #252525;border-radius:16px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(12px) scale(0.97);transform-origin:bottom right;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;overflow:hidden;resize:both;}
     .chat-window.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
     .chat-header{padding:16px 20px;border-bottom:1px solid #1e1e1e;display:flex;align-items:center;gap:12px;flex-shrink:0;background:#111;cursor:move;user-select:none;}
     .chat-avatar{width:36px;height:36px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#666;flex-shrink:0;}
@@ -96,27 +119,12 @@
     .send-btn{width:36px;height:36px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a;color:#555;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
     .send-btn:hover{border-color:#777;color:#e8e4df;}
 
-    /* ── WELCOME ── */
-    .welcome{position:fixed;inset:0;background:#0d0d0d;display:flex;align-items:center;justify-content:center;z-index:999;flex-direction:column;gap:20px;transition:opacity 0.7s ease;}
-    .welcome.hidden{opacity:0;pointer-events:none;}
-    .welcome-line{font-size:clamp(26px,3.8vw,42px);color:#e8e4df;font-weight:500;letter-spacing:-0.02em;min-height:1.4em;text-align:center;line-height:1.4;}
-    .welcome-sub{font-size:13px;letter-spacing:0.1em;color:#888;text-transform:uppercase;min-height:1.4em;text-align:center;}
-    .wcursor{display:inline-block;width:2px;height:0.9em;background:#e8e4df;margin-left:2px;vertical-align:text-bottom;animation:wblink 0.7s infinite;}
-    @keyframes wblink{0%,100%{opacity:1;}50%{opacity:0;}}
-    .skip-btn{position:fixed;bottom:32px;right:32px;font-size:10px;letter-spacing:0.1em;color:#444;text-transform:uppercase;cursor:pointer;background:none;border:none;font-family:inherit;transition:color 0.2s;}
-    .skip-btn:hover{color:#888;}
-
-    /* ── GESTURE BUTTON ── */
-    .gesture-btn{position:fixed;bottom:28px;left:28px;width:56px;height:56px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
-    .gesture-btn:hover{border-color:#777;transform:scale(1.06);}
-    .gesture-btn.active{border-color:#4CAF50;}
-
     /* ── GESTURE PANEL ── */
-    .gesture-panel{position:fixed;bottom:96px;left:28px;width:300px;background:#111;border:1px solid #252525;border-radius:16px;padding:20px;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;}
+    .gesture-panel{position:fixed;bottom:100px;left:24px;width:340px;background:#111;border:1px solid #252525;border-radius:16px;padding:22px;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;}
     .gesture-panel.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
     .gp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-    .gp-title{font-size:12px;font-weight:600;color:#e8e4df;letter-spacing:0.04em;}
-    .gp-status{font-size:10px;color:#333;display:flex;align-items:center;gap:6px;}
+    .gp-title{font-size:13px;font-weight:600;color:#e8e4df;}
+    .gp-status{font-size:11px;color:#666;display:flex;align-items:center;gap:6px;}
     .gp-dot{width:6px;height:6px;border-radius:50%;background:#333;transition:background 0.3s;}
     .gp-dot.on{background:#4CAF50;}
     .gp-close{background:none;border:none;color:#333;cursor:pointer;font-size:16px;transition:color 0.2s;line-height:1;}
@@ -124,24 +132,54 @@
     .cam-wrap{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;position:relative;background:#0a0a0a;margin-bottom:12px;display:none;}
     #gestureCanvas{position:absolute;inset:0;width:100%;height:100%;}
     #gestureVideo{width:100%;height:100%;object-fit:cover;display:block;transform:scaleX(-1);}
-    .enable-btn{width:100%;padding:9px;background:#1a1a1a;border:1px solid #252525;color:#666;font-family:inherit;font-size:12px;letter-spacing:0.06em;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
+    .enable-btn{width:100%;padding:11px;background:#1a1a1a;border:1px solid #252525;color:#888;font-family:inherit;font-size:13px;letter-spacing:0.06em;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
     .enable-btn:hover{border-color:#4CAF50;color:#4CAF50;}
     .enable-btn.running{border-color:#4CAF50;color:#4CAF50;background:#0a1a0a;}
-    .gesture-feedback{font-size:12px;color:#444;text-align:center;padding:9px;border:1px solid #1a1a1a;border-radius:8px;min-height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
-    .gesture-feedback.active{color:#c8c4bf;}
+    .gesture-feedback{font-size:13px;color:#666;text-align:center;padding:10px;border:1px solid #252525;border-radius:8px;min-height:38px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+    .gesture-feedback.active{color:#e8e4df;}
     .gesture-legend{display:flex;flex-direction:column;gap:8px;}
     .gl-row{display:flex;align-items:center;gap:10px;}
     .gl-icon{font-size:15px;width:22px;text-align:center;}
-    .gl-label{font-size:11px;color:#333;letter-spacing:0.03em;}
-    .gl-label span{color:#555;}
+    .gl-label{font-size:12px;color:#888;letter-spacing:0.03em;}
+    .gl-label span{color:#c8c4bf;}
+
+    /* ── ROAST WINDOW ── */
+    .roast-window{position:fixed;bottom:100px;left:100px;width:380px;height:500px;min-width:300px;min-height:300px;background:#111;border:1px solid #252525;border-radius:16px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(12px) scale(0.97);transform-origin:bottom left;transition:opacity 0.3s ease,transform 0.3s ease;z-index:300;overflow:hidden;resize:both;}
+    .roast-window.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
+    .roast-header{padding:16px 20px;border-bottom:1px solid #1e1e1e;display:flex;align-items:center;gap:12px;flex-shrink:0;background:#111;cursor:move;user-select:none;}
+    .roast-avatar{width:36px;height:36px;border-radius:50%;background:#2a1a1a;border:1px solid #3a2a2a;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+    .roast-name{font-size:14px;font-weight:600;color:#e8e4df;}
+    .roast-sub{font-size:10px;color:#554444;margin-top:2px;letter-spacing:0.04em;}
+    .roast-close{background:none;border:none;color:#333;cursor:pointer;font-size:20px;margin-left:auto;transition:color 0.2s;line-height:1;padding:2px 4px;}
+    .roast-close:hover{color:#aaa;}
+    .roast-messages{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;scrollbar-width:thin;scrollbar-color:#222 transparent;background:#111;}
+    .roast-messages::-webkit-scrollbar{width:3px;}
+    .roast-messages::-webkit-scrollbar-thumb{background:#222;}
+    .rmsg{display:flex;flex-direction:column;gap:4px;max-width:88%;}
+    .rmsg.ai{align-self:flex-start;}
+    .rmsg.user{align-self:flex-end;align-items:flex-end;}
+    .rbubble{padding:11px 15px;border-radius:14px;font-size:14px;line-height:1.75;}
+    .rmsg.ai .rbubble{background:#1e1212;color:#d4a0a0;border:1px solid #2e1a1a;border-radius:14px 14px 14px 2px;white-space:pre-wrap;}
+    .rmsg.user .rbubble{background:#1e1e1e;color:#d8d4cf;border-radius:14px 14px 2px 14px;}
+    .rmsg-time{font-size:10px;color:#2a2a2a;}
+    .roast-thinking{align-self:flex-start;padding:12px 16px;display:flex;align-items:center;gap:10px;}
+    .roast-morph{width:16px;height:16px;background:#5a2a2a;animation:morphing 2s ease-in-out infinite;}
+    .roast-think-text{font-size:11px;color:#442222;letter-spacing:0.08em;text-transform:uppercase;}
+    .roast-input-row{padding:14px 18px;border-top:1px solid #1a1a1a;display:flex;gap:10px;align-items:center;flex-shrink:0;background:#111;}
+    .roast-input{flex:1;background:#181818;border:1px solid #242424;color:#d8d4cf;font-family:inherit;font-size:14px;padding:10px 16px;border-radius:24px;outline:none;transition:border-color 0.2s;}
+    .roast-input:focus{border-color:#3a2a2a;}
+    .roast-input::placeholder{color:#2a2a2a;}
+    .roast-send{width:36px;height:36px;border-radius:50%;background:#2a1a1a;border:1px solid #3a2a2a;color:#664444;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+    .roast-send:hover{border-color:#884444;color:#e8a0a0;}
 
     /* ── GESTURE TOAST ── */
-    .gesture-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);background:rgba(17,17,17,0.95);border:1px solid #252525;border-radius:12px;padding:14px 24px;font-size:16px;color:#e8e4df;z-index:500;opacity:0;pointer-events:none;transition:opacity 0.2s,transform 0.2s;text-align:center;letter-spacing:0.04em;}
+    .gesture-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);background:rgba(17,17,17,0.95);border:1px solid #252525;border-radius:12px;padding:14px 24px;font-size:16px;color:#e8e4df;z-index:500;opacity:0;pointer-events:none;transition:opacity 0.2s,transform 0.2s;text-align:center;}
     .gesture-toast.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
   </style>
 </head>
 <body>
 
+<!-- WELCOME -->
 <div class="welcome" id="welcome">
   <div class="welcome-line"><span id="wtext"></span><span class="wcursor"></span></div>
   <div class="welcome-sub" id="wsub"></div>
@@ -179,17 +217,38 @@
 </div>
 </div>
 
-<!-- CHAT HINT -->
+<!-- HINTS -->
 <div class="chat-hint" id="chat-hint">
-  <div class="chat-hint-text">Come chat with my<br><strong>AI Friend</strong></div>
-  <div class="chat-hint-line"></div>
-  <div class="chat-hint-chevron"></div>
+  <div class="hint-text">Chat with my<br><strong>AI Friend</strong></div>
+  <div class="hint-line-v"></div>
+  <div class="hint-chevron-d"></div>
+</div>
+<div class="gesture-hint" id="gesture-hint">
+  <div class="hint-line-h"></div>
+  <div class="hint-text"><strong>Gesture</strong><br>Control</div>
 </div>
 
+<!-- LABELS -->
+<div class="fab-label" id="label-chat">Chat</div>
+<div class="fab-label" id="label-gesture">Gesture</div>
+<div class="fab-label" id="label-roast">Roast</div>
+
 <!-- CHAT BUTTON -->
-<button class="chat-btn" id="chat-btn" title="Ask Simen's AI">
-  <div class="chat-btn-pulse"></div>
+<button class="fab" id="chat-btn">
+  <div class="fab-pulse"></div>
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</button>
+
+<!-- GESTURE BUTTON -->
+<button class="fab" id="gesture-btn">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M6 14a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2.5"/>
+  </svg>
+</button>
+
+<!-- ROAST BUTTON -->
+<button class="fab" id="roast-btn">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-4 4-4 8a4 4 0 0 0 8 0c0-4-4-8-4-8z"/><path d="M12 10c0 0-2 2-2 4a2 2 0 0 0 4 0c0-2-2-4-2-4z"/></svg>
 </button>
 
 <!-- CHAT WINDOW -->
@@ -204,10 +263,7 @@
     <button class="chat-close" id="chat-close">×</button>
   </div>
   <div class="chat-messages" id="chat-messages">
-    <div class="msg ai">
-      <div class="bubble">Hey — I'm Simen's portfolio AI. Ask me about his projects, background, or what he's working on.</div>
-      <div class="msg-time">now</div>
-    </div>
+    <div class="msg ai"><div class="bubble">Hey — I'm Simen's portfolio AI. Ask me about his projects, background, or what he's working on.</div><div class="msg-time">now</div></div>
   </div>
   <div class="chat-sugs" id="chat-sugs">
     <button class="sug">What is FruitWatch?</button>
@@ -220,13 +276,6 @@
     <button class="send-btn" id="send-btn">↑</button>
   </div>
 </div>
-
-<!-- GESTURE BUTTON -->
-<button class="gesture-btn" id="gesture-btn" title="Gesture control">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M6 14a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2.5"/>
-  </svg>
-</button>
 
 <!-- GESTURE PANEL -->
 <div class="gesture-panel" id="gesture-panel">
@@ -244,18 +293,35 @@
   </div>
   <div class="gesture-feedback" id="gesture-feedback">Show your hand to begin</div>
   <div class="gesture-legend">
-    <div class="gl-row"><span class="gl-icon">👇</span><div class="gl-label">Fingers down → <span>next project</span></div></div>
-    <div class="gl-row"><span class="gl-icon">👆</span><div class="gl-label">Fingers up → <span>previous project</span></div></div>
-    <div class="gl-row"><span class="gl-icon">⌨️</span><div class="gl-label">Typing motion → <span>open chat</span></div></div>
+    <div class="gl-row"><span class="gl-icon">☝️</span><div class="gl-label">1 finger → <span>previous project</span></div></div>
+    <div class="gl-row"><span class="gl-icon">✌️</span><div class="gl-label">2 fingers → <span>next project</span></div></div>
+    <div class="gl-row"><span class="gl-icon">🖐</span><div class="gl-label">Open palm → <span>open chat</span></div></div>
     <div class="gl-row"><span class="gl-icon">✊</span><div class="gl-label">Fist → <span>close chat</span></div></div>
+  </div>
+</div>
+
+<!-- ROAST WINDOW -->
+<div class="roast-window" id="roast-window">
+  <div class="roast-header" id="roast-header">
+    <div class="roast-avatar">🔥</div>
+    <div>
+      <div class="roast-name">The Bouncer AI</div>
+      <div class="roast-sub">simen's hired goon · will roast you</div>
+    </div>
+    <button class="roast-close" id="roast-close">×</button>
+  </div>
+  <div class="roast-messages" id="roast-messages"></div>
+  <div class="roast-input-row">
+    <input class="roast-input" id="roast-input" placeholder="Say something... I dare you." autocomplete="off"/>
+    <button class="roast-send" id="roast-send">↑</button>
   </div>
 </div>
 
 <!-- GESTURE TOAST -->
 <div class="gesture-toast" id="gesture-toast"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.1/dist/hand-pose-detection.min.js"></script>
+<script src="mediapipe/hands.min.js"></script>
+<script src="mediapipe/camera_utils.min.js"></script>
 
 <script>
 const projects = [
@@ -297,6 +363,8 @@ const projects = [
   },
 ];
 
+const API = 'https://web-production-ad3a8.up.railway.app';
+
 /* ── CAROUSEL ── */
 const stage=document.getElementById('stage');
 const progressEl=document.getElementById('progress');
@@ -329,7 +397,6 @@ function positionCards(){
     card.style.pointerEvents=dist<50?'auto':'none';
   });
 }
-
 function lerp(a,b,t){return a+(b-a)*t;}
 function tick(){
   angle=lerp(angle,targetAng,0.048);
@@ -337,7 +404,6 @@ function tick(){
   positionCards(); requestAnimationFrame(tick);
 }
 tick();
-
 function goNext(){current=(current+1)%n;targetAng+=STEP;updateDots();}
 function goPrev(){current=(current-1+n)%n;targetAng-=STEP;updateDots();}
 function updateDots(){document.querySelectorAll('.prog-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
@@ -349,7 +415,6 @@ site.addEventListener('wheel',e=>{
   wheelTimer=setTimeout(()=>{wheelAcc=0;},100);
   if(Math.abs(wheelAcc)>80){wheelAcc>0?goNext():goPrev();wheelAcc=0;}
 },{passive:false});
-
 let touchY=null;
 site.addEventListener('touchstart',e=>{if(!overlayOpen) touchY=e.touches[0].clientY;});
 site.addEventListener('touchend',e=>{
@@ -357,13 +422,11 @@ site.addEventListener('touchend',e=>{
   const d=touchY-e.changedTouches[0].clientY;
   if(d>30)goNext(); else if(d<-30)goPrev(); touchY=null;
 });
-
 document.addEventListener('keydown',e=>{
   if(overlayOpen){if(e.key==='Escape') document.getElementById('ov-back').click(); return;}
   if(e.key==='ArrowDown') goNext();
   if(e.key==='ArrowUp') goPrev();
 });
-
 function openProject(idx){
   const p=projects[idx]; overlayOpen=true;
   document.getElementById('ov-title-sm').textContent=p.title.replace('\n',' ');
@@ -378,8 +441,7 @@ function openProject(idx){
 }
 document.getElementById('ov-back').addEventListener('click',()=>{ overlay.classList.remove('open'); setTimeout(()=>{overlayOpen=false;},450); });
 
-/* ── CHATBOT ── */
-const API_URL='https://web-production-ad3a8.up.railway.app/chat';
+/* ── CHAT ── */
 const chatBtn=document.getElementById('chat-btn');
 const chatWin=document.getElementById('chat-window');
 const chatClose=document.getElementById('chat-close');
@@ -392,7 +454,7 @@ let chatLoading=false;
 
 chatBtn.addEventListener('click',()=>{ chatWin.classList.toggle('open'); hint.style.display='none'; });
 chatClose.addEventListener('click',()=> chatWin.classList.remove('open'));
-document.querySelectorAll('.sug').forEach(s=> s.addEventListener('click',()=>{ sendMessage(s.textContent); sugsEl.style.display='none'; }));
+document.querySelectorAll('.sug').forEach(s=>s.addEventListener('click',()=>{ sendMessage(s.textContent); sugsEl.style.display='none'; }));
 chatInput.addEventListener('keydown',e=>{ if(e.key==='Enter'){e.preventDefault(); sendMessage(chatInput.value);}});
 sendBtn.addEventListener('click',()=> sendMessage(chatInput.value));
 
@@ -404,36 +466,41 @@ function addMsg(role,text=''){
   wrap.append(bubble,time); msgsEl.appendChild(wrap); msgsEl.scrollTop=msgsEl.scrollHeight;
   return bubble;
 }
-function showTyping(){
-  const t=document.createElement('div');t.className='ai-thinking';t.id='typing';
-  t.innerHTML='<div class="morph-shape"></div><span class="ai-thinking-text">thinking...</span>';
-  msgsEl.appendChild(t);msgsEl.scrollTop=msgsEl.scrollHeight;
-}
+function showTyping(){const t=document.createElement('div');t.className='ai-thinking';t.id='typing';t.innerHTML='<div class="morph-shape"></div><span class="ai-thinking-text">thinking...</span>';msgsEl.appendChild(t);msgsEl.scrollTop=msgsEl.scrollHeight;}
 function hideTyping(){document.getElementById('typing')?.remove();}
-
 async function sendMessage(text){
   text=text.trim(); if(!text||chatLoading) return;
   chatInput.value=''; sugsEl.style.display='none';
   addMsg('user',text); chatLoading=true; showTyping();
   try{
-    const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text})});
+    const res=await fetch(API+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text})});
     hideTyping();
     const bubble=addMsg('ai');
     const reader=res.body.getReader(),decoder=new TextDecoder();
     let full='';
-    while(true){
-      const{done,value}=await reader.read(); if(done) break;
-      full+=decoder.decode(value,{stream:true});
-      bubble.textContent=full; msgsEl.scrollTop=msgsEl.scrollHeight;
-    }
-  }catch(e){
-    hideTyping();
-    addMsg('ai','Could not reach the AI server.');
-  }
+    while(true){const{done,value}=await reader.read(); if(done) break; full+=decoder.decode(value,{stream:true}); bubble.textContent=full; msgsEl.scrollTop=msgsEl.scrollHeight;}
+  }catch(e){ hideTyping(); addMsg('ai','Could not reach the AI server.'); }
   chatLoading=false;
 }
 
-/* ── WELCOME ANIMATION ── */
+/* ── DRAGGABLE CHAT ── */
+(function(){
+  const win=document.getElementById('chat-window');
+  const header=document.querySelector('.chat-header');
+  let isDragging=false,startX=0,startY=0,startLeft=0,startTop=0;
+  header.addEventListener('mousedown',e=>{
+    if(e.target.closest('.chat-close')) return;
+    isDragging=true; const rect=win.getBoundingClientRect();
+    startX=e.clientX;startY=e.clientY;startLeft=rect.left;startTop=rect.top;
+    win.style.right='auto';win.style.bottom='auto';
+    win.style.left=startLeft+'px';win.style.top=startTop+'px';
+    document.body.style.userSelect='none';
+  });
+  document.addEventListener('mousemove',e=>{ if(!isDragging) return; win.style.left=Math.max(0,startLeft+(e.clientX-startX))+'px'; win.style.top=Math.max(0,startTop+(e.clientY-startY))+'px'; });
+  document.addEventListener('mouseup',()=>{ isDragging=false; document.body.style.userSelect=''; });
+})();
+
+/* ── WELCOME ── */
 (function(){
   const el=document.getElementById('wtext');
   const sub=document.getElementById('wsub');
@@ -468,25 +535,94 @@ async function sendMessage(text){
   run();
 })();
 
-/* ── DRAGGABLE CHAT ── */
+/* ── ROAST CHAT ── */
 (function(){
-  const win=document.getElementById('chat-window');
-  const header=document.querySelector('.chat-header');
-  let isDragging=false,startX=0,startY=0,startLeft=0,startTop=0;
+  const btn      = document.getElementById('roast-btn');
+  const win      = document.getElementById('roast-window');
+  const closeBtn = document.getElementById('roast-close');
+  const msgsEl   = document.getElementById('roast-messages');
+  const input    = document.getElementById('roast-input');
+  const sendBtn  = document.getElementById('roast-send');
+  let loading    = false;
+  let opened     = false;
+
+  btn.addEventListener('click',()=>{
+    win.classList.toggle('open');
+    if(!opened){ opened=true; openingRoast(); }
+  });
+  closeBtn.addEventListener('click',()=> win.classList.remove('open'));
+  input.addEventListener('keydown',e=>{ if(e.key==='Enter'){e.preventDefault(); sendRoast(input.value);} });
+  sendBtn.addEventListener('click',()=> sendRoast(input.value));
+
+  /* draggable */
+  const header = document.getElementById('roast-header');
+  let isDrag=false,sx=0,sy=0,sl=0,st=0;
   header.addEventListener('mousedown',e=>{
-    if(e.target.closest('.chat-close')) return;
-    isDragging=true;
-    const rect=win.getBoundingClientRect();
-    startX=e.clientX;startY=e.clientY;startLeft=rect.left;startTop=rect.top;
+    if(e.target.closest('.roast-close')) return;
+    isDrag=true; const r=win.getBoundingClientRect();
+    sx=e.clientX;sy=e.clientY;sl=r.left;st=r.top;
     win.style.right='auto';win.style.bottom='auto';
-    win.style.left=startLeft+'px';win.style.top=startTop+'px';
+    win.style.left=sl+'px';win.style.top=st+'px';
     document.body.style.userSelect='none';
   });
-  document.addEventListener('mousemove',e=>{ if(!isDragging) return; win.style.left=Math.max(0,startLeft+(e.clientX-startX))+'px'; win.style.top=Math.max(0,startTop+(e.clientY-startY))+'px'; });
-  document.addEventListener('mouseup',()=>{ isDragging=false; document.body.style.userSelect=''; });
+  document.addEventListener('mousemove',e=>{ if(!isDrag) return; win.style.left=Math.max(0,sl+(e.clientX-sx))+'px'; win.style.top=Math.max(0,st+(e.clientY-sy))+'px'; });
+  document.addEventListener('mouseup',()=>{ isDrag=false; document.body.style.userSelect=''; });
+
+  function now(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
+
+  function addMsg(role, text=''){
+    const wrap=document.createElement('div'); wrap.className=`rmsg ${role}`;
+    const bubble=document.createElement('div'); bubble.className='rbubble'; bubble.textContent=text;
+    const time=document.createElement('div'); time.className='rmsg-time'; time.textContent=now();
+    wrap.append(bubble,time); msgsEl.appendChild(wrap); msgsEl.scrollTop=msgsEl.scrollHeight;
+    return bubble;
+  }
+
+  function showThinking(){
+    const t=document.createElement('div'); t.className='roast-thinking'; t.id='roast-typing';
+    t.innerHTML='<div class="roast-morph"></div><span class="roast-think-text">loading insults...</span>';
+    msgsEl.appendChild(t); msgsEl.scrollTop=msgsEl.scrollHeight;
+  }
+  function hideThinking(){ document.getElementById('roast-typing')?.remove(); }
+
+  async function openingRoast(){
+    showThinking();
+    try{
+      const res=await fetch(API+'/roast',{method:'POST',headers:{'Content-Type':'application/json'}});
+      hideThinking();
+      const bubble=addMsg('ai');
+      const reader=res.body.getReader(),decoder=new TextDecoder();
+      let full='';
+      while(true){
+        const{done,value}=await reader.read(); if(done) break;
+        full+=decoder.decode(value,{stream:true}); bubble.textContent=full; msgsEl.scrollTop=msgsEl.scrollHeight;
+      }
+    }catch(e){ hideThinking(); addMsg('ai',"My roast crashed. Even that is embarrassing for Simen."); }
+  }
+
+  async function sendRoast(text){
+    text=text.trim(); if(!text||loading) return;
+    input.value=''; addMsg('user',text); loading=true; showThinking();
+    try{
+      const res=await fetch(API+'/roast_reply',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:text})
+      });
+      hideThinking();
+      const bubble=addMsg('ai');
+      const reader=res.body.getReader(),decoder=new TextDecoder();
+      let full='';
+      while(true){
+        const{done,value}=await reader.read(); if(done) break;
+        full+=decoder.decode(value,{stream:true}); bubble.textContent=full; msgsEl.scrollTop=msgsEl.scrollHeight;
+      }
+    }catch(e){ hideThinking(); addMsg('ai',"Server's down. Even the roast bot needs a break."); }
+    loading=false;
+  }
 })();
 
-/* ── GESTURE CONTROL ── */
+/* ── GESTURE ── */
 (function(){
   const gestureBtn  = document.getElementById('gesture-btn');
   const gesturePanel= document.getElementById('gesture-panel');
@@ -500,124 +636,90 @@ async function sendMessage(text){
   const gpDot       = document.getElementById('gp-dot');
   const gpStatus    = document.getElementById('gp-status-text');
   const toast       = document.getElementById('gesture-toast');
+  const gHint       = document.getElementById('gesture-hint');
 
-  let detector=null, running=false, gestureCooldown=false, lastGesture='';
+  let running=false, gestureCooldown=false, lastGesture='', mpHands=null, camera=null;
 
-  gestureBtn.addEventListener('click',()=> gesturePanel.classList.toggle('open'));
+  gestureBtn.addEventListener('click',()=>{ gesturePanel.classList.toggle('open'); if(gHint) gHint.style.display='none'; });
   gpClose.addEventListener('click',()=> gesturePanel.classList.remove('open'));
+  enableBtn.addEventListener('click',()=>{ running ? stopCamera() : startCamera(); });
 
-  enableBtn.addEventListener('click', async()=>{
-    if(running){ stopCamera(); return; }
-    await startCamera();
-  });
-
-  function showToast(text){
-    toast.textContent=text;
-    toast.classList.add('show');
-    setTimeout(()=> toast.classList.remove('show'), 1200);
+  function showToast(text){ toast.textContent=text; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),1200); }
+  function setStatus(on){
+    running=on; gpDot.classList.toggle('on',on); gpStatus.textContent=on?'active':'off';
+    gestureBtn.classList.toggle('active',on); enableBtn.textContent=on?'Disable camera':'Enable camera';
+    enableBtn.classList.toggle('running',on); camWrap.style.display=on?'block':'none';
+    if(!on) feedback.textContent='Show your hand to begin';
   }
 
-  async function startCamera(){
-    try{
-      enableBtn.textContent='Loading model...';
-      enableBtn.disabled=true;
-      const stream=await navigator.mediaDevices.getUserMedia({video:{width:320,height:240}});
-      video.srcObject=stream;
-      await new Promise(r=> video.onloadedmetadata=r);
-      canvas.width=video.videoWidth;
-      canvas.height=video.videoHeight;
-      camWrap.style.display='block';
-      detector=await handPoseDetection.createDetector(
-        handPoseDetection.SupportedModels.MediaPipeHands,
-        {runtime:'tfjs',modelType:'lite',maxHands:1}
-      );
-      running=true;
-      enableBtn.textContent='Disable camera';
-      enableBtn.disabled=false;
-      enableBtn.classList.add('running');
-      gpDot.classList.add('on');
-      gpStatus.textContent='active';
-      gestureBtn.classList.add('active');
-      feedback.textContent='Show your hand ✋';
-      detect();
-    }catch(e){
-      enableBtn.textContent='Camera access denied';
-      enableBtn.disabled=false;
-      feedback.textContent='Could not access camera';
-    }
+  function startCamera(){
+    enableBtn.textContent='Loading...'; enableBtn.disabled=true;
+    mpHands=new Hands({locateFile:f=>`mediapipe/${f}`});
+    mpHands.setOptions({maxNumHands:1,modelComplexity:0,minDetectionConfidence:0.6,minTrackingConfidence:0.5});
+    mpHands.onResults(onResults);
+    camera=new Camera(video,{onFrame:async()=>{ await mpHands.send({image:video}); },width:320,height:240});
+    camera.start().then(()=>{
+      canvas.width=320; canvas.height=240;
+      enableBtn.disabled=false; setStatus(true); feedback.textContent='Show your hand ✋';
+    }).catch(()=>{ enableBtn.textContent='Camera denied'; enableBtn.disabled=false; feedback.textContent='Could not access camera'; });
   }
 
   function stopCamera(){
-    running=false;
-    if(video.srcObject) video.srcObject.getTracks().forEach(t=>t.stop());
-    camWrap.style.display='none';
-    enableBtn.textContent='Enable camera';
-    enableBtn.classList.remove('running');
-    gpDot.classList.remove('on');
-    gpStatus.textContent='off';
-    gestureBtn.classList.remove('active');
-    feedback.textContent='Show your hand to begin';
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(camera) camera.stop(); if(mpHands) mpHands.close();
+    ctx.clearRect(0,0,canvas.width,canvas.height); setStatus(false);
   }
 
-  async function detect(){
-    if(!running) return;
-    const hands=await detector.estimateHands(video,{flipHorizontal:true});
+  const gestureHistory=[];
+  const HOLD_FRAMES=5;
+  function isUp(tip,mid){return tip.y<mid.y-10;}
+
+  function onResults(results){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    if(hands.length>0){
-      const kp=hands[0].keypoints;
-      drawHand(kp);
-      const gesture=classifyGesture(kp);
-      if(gesture&&gesture!==lastGesture&&!gestureCooldown){
-        lastGesture=gesture;
-        triggerGesture(gesture);
-        gestureCooldown=true;
-        setTimeout(()=>{ gestureCooldown=false; lastGesture=''; },1400);
-      }
-      if(gesture){ feedback.textContent=gestureLabel(gesture); feedback.classList.add('active'); }
-      else{ feedback.textContent='Hand detected ✋'; feedback.classList.remove('active'); }
-    }else{
-      feedback.textContent='Show your hand ✋';
-      feedback.classList.remove('active');
-      lastGesture='';
+    if(!results.multiHandLandmarks||results.multiHandLandmarks.length===0){
+      feedback.textContent='Show your hand ✋'; feedback.classList.remove('active'); lastGesture=''; return;
     }
-    requestAnimationFrame(detect);
+    const lm=results.multiHandLandmarks[0];
+    const kp=lm.map(p=>({x:p.x*320,y:p.y*240}));
+    drawHand(kp);
+    const gesture=classifyGesture(kp);
+    if(gesture&&gesture!==lastGesture&&!gestureCooldown){
+      lastGesture=gesture; triggerGesture(gesture); gestureCooldown=true;
+      setTimeout(()=>{ gestureCooldown=false; lastGesture=''; gestureHistory.length=0; },2200);
+    }
+    feedback.textContent=gesture?gestureLabel(gesture):'Hand detected ✋';
+    feedback.classList.toggle('active',!!gesture);
   }
 
   function drawHand(kp){
-    ctx.fillStyle='rgba(200,196,191,0.8)';
-    kp.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,3,0,Math.PI*2); ctx.fill(); });
-    const conn=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20]];
-    ctx.strokeStyle='rgba(200,196,191,0.25)'; ctx.lineWidth=1;
-    conn.forEach(([a,b])=>{ ctx.beginPath(); ctx.moveTo(kp[a].x,kp[a].y); ctx.lineTo(kp[b].x,kp[b].y); ctx.stroke(); });
+    ctx.fillStyle='rgba(200,196,191,0.9)';
+    kp.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,3,0,Math.PI*2);ctx.fill();});
+    [[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20]].forEach(([a,b])=>{
+      ctx.beginPath();ctx.strokeStyle='rgba(200,196,191,0.3)';ctx.lineWidth=1.5;
+      ctx.moveTo(kp[a].x,kp[a].y);ctx.lineTo(kp[b].x,kp[b].y);ctx.stroke();
+    });
   }
 
   function classifyGesture(kp){
-    const tips =[kp[8],kp[12],kp[16],kp[20]];
-    const mids =[kp[6],kp[10],kp[14],kp[18]];
-    const bases=[kp[5],kp[9], kp[13],kp[17]];
-    const allUp  =tips.every((t,i)=> t.y < mids[i].y-15);
-    const allDown=tips.every((t,i)=> t.y > mids[i].y+15);
-    const isFist =tips.every((t,i)=> t.y > bases[i].y);
-    const spreadX=Math.max(...tips.map(t=>t.x))-Math.min(...tips.map(t=>t.x));
-    const spreadY=Math.max(...tips.map(t=>t.y))-Math.min(...tips.map(t=>t.y));
-    const isTyping=spreadX>60&&spreadY<40&&!allUp&&!allDown&&!isFist;
-    if(isFist)   return 'fist';
-    if(allUp)    return 'up';
-    if(allDown)  return 'down';
-    if(isTyping) return 'typing';
-    return null;
+    const i=isUp(kp[8],kp[6]),m=isUp(kp[12],kp[10]),r=isUp(kp[16],kp[14]),p=isUp(kp[20],kp[18]);
+    let raw=null;
+    if(!i&&!m&&!r&&!p)     raw='fist';
+    else if(i&&!m&&!r&&!p) raw='one';
+    else if(i&&m&&!r&&!p)  raw='two';
+    else if(i&&m&&r)       raw='palm';
+    gestureHistory.push(raw);
+    if(gestureHistory.length>HOLD_FRAMES) gestureHistory.shift();
+    if(gestureHistory.length<HOLD_FRAMES) return null;
+    const majority=gestureHistory.filter(g=>g===raw).length;
+    return majority>=4&&raw?raw:null;
   }
 
-  function gestureLabel(g){
-    return {up:'👆 Previous project',down:'👇 Next project',typing:'⌨️ Opening chat...',fist:'✊ Closing chat...'}[g]||'';
-  }
+  function gestureLabel(g){return{one:'☝️ Previous project',two:'✌️ Next project',palm:'🖐 Open chat',fist:'✊ Close chat'}[g]||'';}
 
   function triggerGesture(g){
-    if(g==='down'){ goNext(); showToast('👇 Next project'); }
-    if(g==='up'){   goPrev(); showToast('👆 Previous project'); }
-    if(g==='typing'){ chatWin.classList.add('open'); hint.style.display='none'; showToast('⌨️ Chat opened'); }
-    if(g==='fist'){   chatWin.classList.remove('open'); showToast('✊ Chat closed'); }
+    if(g==='two'){  goNext(); showToast('✌️ Next project'); }
+    if(g==='one'){  goPrev(); showToast('☝️ Previous project'); }
+    if(g==='palm'){ chatWin.classList.add('open'); hint.style.display='none'; showToast('🖐 Chat opened'); }
+    if(g==='fist'){ chatWin.classList.remove('open'); showToast('✊ Chat closed'); }
   }
 })();
 </script>

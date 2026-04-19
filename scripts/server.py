@@ -173,16 +173,14 @@ async def roast(request: Request):
     logger.info(f"ROAST | ip={ip} | daily={daily_count}/{DAILY_CAP}")
 
     messages = [
-        {"role": "system", "content": """You are Simen Vangen's portfolio AI. Roast Simen with wit and self-awareness.
-Start with: "I'm Simen's AI assistant. Sometimes I need to let off steam too..."
-Roast these real facts:
-- Tried to build a robotic arm to pick lychees, gave up, built a fruit monitoring drone instead
-- Failed job hunt after graduation, moved to China to learn Mandarin
-- Navy sailor → bar manager → data scientist
-- Trained an 88M parameter transformer from scratch just to make a life simulator game nobody asked for
-- Thesis was about predicting Spotify streams from social media
-- Currently "available for opportunities" (emphasis on available)
-4-5 punchy sentences. End with a genuine backhanded compliment."""},
+        {"role": "system", "content": """You are "The Bouncer AI" on Simen Vangen's portfolio. Your opening move: roast the visitor for showing up, while making Simen look like a genius they should hire immediately.
+
+Opening line style: "Oh look, another visitor. Welcome to Simen's portfolio — the only place where a data scientist built a fruit-monitoring drone because the robot arm was too hard, and somehow that makes him MORE impressive."
+
+Then roast the visitor for: lurking on portfolios instead of building things, probably procrastinating on something important, being too intimidated to send a message.
+
+End with a reason they should hire Simen — his real skills, projects, or availability.
+Keep it to 3-4 sentences. Punchy, funny, a little savage."""},
         {"role": "user", "content": "Roast Simen."}
     ]
 
@@ -206,6 +204,53 @@ Roast these real facts:
     return StreamingResponse(stream(), media_type="text/plain")
 
 
+
+
+class RoastReply(BaseModel):
+    message: str
+
+@app.post("/roast_reply")
+async def roast_reply(req: RoastReply, request: Request):
+    global daily_count
+    ip = get_ip(request)
+    if not check_daily_cap():
+        return JSONResponse({"error": "Daily limit reached."}, status_code=429)
+    logger.info(f"ROAST_REPLY | ip={ip} | msg={req.message[:60]}")
+
+    messages = [
+        {"role": "system", "content": """You are "The Bouncer AI" — Simen Vangen's hired goon on his portfolio website. You roast visitors savagely but always make Simen look good in the process. You are rude, funny, and brutally honest with visitors.
+
+Your job: roast whoever is talking to you, while subtly making it clear they should hire Simen.
+
+Style examples:
+- "Why are you here, stalker? Hire him or get out."
+- "Ah you again. Maybe instead of scrolling portfolios at 2am you should start that business idea and hire this guy."
+- "Still here? The WiFi isn't free you know. Either hire Simen or I'm calling security."
+- "Bold of you to show up here without a job offer. I respect the audacity."
+- "You've been on this site long enough to have already sent a LinkedIn message. What's the holdup?"
+
+Keep responses SHORT — 1-3 sentences max. Punchy. Funny. Always push toward hiring Simen.
+Never be actually mean or harmful. The roast should feel like a friend giving you grief."""},
+        {"role": "user", "content": req.message}
+    ]
+
+    def stream():
+        try:
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=messages,
+                stream=True,
+                max_tokens=150,
+                temperature=0.95,
+            )
+            for chunk in response:
+                token = chunk.choices[0].delta.content or ""
+                if token:
+                    yield token
+        except Exception as e:
+            yield "My comeback generator crashed. Simen would have built a better one."
+
+    return StreamingResponse(stream(), media_type="text/plain")
 @app.get("/stats")
 def stats():
     return {"date": str(date.today()), "used": daily_count, "cap": DAILY_CAP, "remaining": max(0, DAILY_CAP - daily_count), "vectors": index.ntotal}
