@@ -22,10 +22,10 @@
     .avail{position:absolute;bottom:14px;left:48px;display:flex;align-items:center;gap:9px;z-index:20;}
     .dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0;}
     .avail-text{font-size:9px;color:#333;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5;}
-    .progress{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:20;}
+    .progress{position:absolute;left:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:20;}
     .prog-dot{width:3px;height:3px;border-radius:50%;background:#1e1e1e;transition:background 0.4s,transform 0.4s;}
     .prog-dot.active{background:#c8c4bf;transform:scale(1.6);}
-    .star{position:absolute;bottom:14px;right:48px;font-size:14px;color:#1e1e1e;z-index:20;}
+
 
     /* ── PROJECT OVERLAY ── */
     .overlay{position:absolute;inset:0;background:#0d0d0d;z-index:50;opacity:0;pointer-events:none;transition:opacity 0.45s ease;overflow-y:auto;cursor:default;}
@@ -71,37 +71,20 @@
     @keyframes hintOut{from{opacity:1;}to{opacity:0;}}
 
     /* ── BOTTOM BUTTONS ── */
-    .fab{position:fixed;width:64px;height:64px;border-radius:50%;background:#0d0d0d;border:1px solid #333;color:#e8e4df;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,transform 0.2s;z-index:200;}
-    .fab:hover{border-color:#777;transform:scale(1.06);}
-    .fab-pulse{position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(200,196,191,0.12);animation:pulseRing 2.8s ease-out infinite;pointer-events:none;}
-    @keyframes pulseRing{0%{transform:scale(1);opacity:0.5;}100%{transform:scale(1.45);opacity:0;}}
-    .fab-label{position:fixed;font-size:10px;letter-spacing:0.08em;color:#444;text-transform:uppercase;pointer-events:none;z-index:199;text-align:center;}
+    .fab{position:fixed;width:64px;height:64px;border-radius:50%;background:#161616;border:1px solid #3a3a3a;color:#c8c4bf;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:200;box-shadow:0 4px 20px rgba(0,0,0,0.4);}
+    .fab:hover{border-color:#888;transform:scale(1.08);background:#1e1e1e;color:#fff;}
+    .fab-pulse{position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(200,196,191,0.15);animation:pulseRing 2.8s ease-out infinite;pointer-events:none;}
+    @keyframes pulseRing{0%{transform:scale(1);opacity:0.6;}100%{transform:scale(1.45);opacity:0;}}
+    .fab-label{position:fixed;font-size:9px;letter-spacing:0.08em;color:#555;text-transform:uppercase;pointer-events:none;z-index:199;text-align:center;width:64px;}
     #chat-btn{bottom:24px;right:24px;}
     #gesture-btn{bottom:24px;left:24px;}
     #gesture-btn.active{border-color:#4CAF50;}
     #roast-btn{bottom:100px;left:24px;z-index:198;}
-    #label-chat{bottom:92px;right:24px;width:64px;}
-    #label-gesture{bottom:92px;left:24px;width:64px;}
-    #label-roast{bottom:168px;left:24px;width:64px;z-index:198;}
+    #label-chat{bottom:91px;right:24px;}
+    #label-gesture{bottom:91px;left:24px;}
+    #label-roast{bottom:167px;left:24px;z-index:198;}
 
-    /* ── SCOREBOARD ── */
-    .sb-overlay{position:fixed;inset:0;background:rgba(5,5,5,0.97);z-index:650;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
-    .sb-overlay.open{opacity:1;pointer-events:auto;}
-    .sb-box{width:100%;max-width:440px;background:#111;border:1px solid #252525;border-radius:16px;padding:32px;position:relative;}
-    .sb-close{position:absolute;top:14px;right:18px;background:none;border:none;color:#333;cursor:pointer;font-size:20px;transition:color 0.2s;}
-    .sb-close:hover{color:#aaa;}
-    .sb-title{font-size:18px;font-weight:700;color:#e8e4df;margin-bottom:4px;}
-    .sb-sub{font-size:9px;letter-spacing:0.12em;color:#333;text-transform:uppercase;margin-bottom:20px;}
-    .sb-row{display:flex;gap:12px;font-size:12px;color:#555;letter-spacing:0.04em;padding:8px 0;border-bottom:1px solid #161616;align-items:center;}
-    .sb-row:last-child{border-bottom:none;}
-    .sb-row.sb-hdr{color:#222;font-size:9px;text-transform:uppercase;padding-bottom:10px;}
-    .sb-rank{width:24px;font-size:14px;}
-    .sb-name{flex:1;color:#c8c4bf;}
-    .sb-score{width:60px;text-align:right;color:#e8e4df;font-weight:600;}
-    .sb-wave{width:44px;text-align:right;color:#4CAF50;}
-    .sb-empty{font-size:12px;color:#555;text-align:center;padding:20px;letter-spacing:0.06em;}
-    .sb-refresh{background:none;border:1px solid #1e1e1e;color:#333;font-family:inherit;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:14px;cursor:pointer;transition:all 0.2s;margin-top:14px;display:block;width:100%;}
-    .sb-refresh:hover{border-color:#444;color:#888;}
+
 
     /* ── CHAT WINDOW ── */
     .chat-window{position:fixed;bottom:100px;right:24px;width:420px;height:560px;min-width:300px;min-height:300px;max-width:90vw;max-height:80vh;background:#111;border:1px solid #252525;border-radius:16px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(12px) scale(0.97);transform-origin:bottom right;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;overflow:hidden;resize:both;}
@@ -205,6 +188,8 @@
   <button class="skip-btn" id="skip-btn">skip intro</button>
 </div>
 
+
+
 <div style="background:#0d0d0d;width:100%;margin:0;padding:0;">
 <div class="site" id="site">
   <nav class="nav">
@@ -212,15 +197,20 @@
       <div class="nav-name">SIMEN<br>VANGEN</div>
       <div class="nav-role">Data Scientist<br>Embodied AI &amp; Robotics</div>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <div style="width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0;"></div>
-      <div style="font-size:10px;color:#444;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5;">Available for<br>opportunities</div>
+    <div style="display:flex;align-items:center;gap:24px;">
+      <button id="cv-page-btn" style="font-size:11px;color:#666;letter-spacing:0.08em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;transition:color 0.2s;" onmouseover="this.style.color='#e8e4df';" onmouseout="this.style.color='#666';">About me ↗</button>
+      <a href="https://github.com/SimenVangen" target="_blank" style="font-size:11px;color:#666;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#e8e4df';" onmouseout="this.style.color='#666';">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/simen-vangen/" target="_blank" style="font-size:11px;color:#666;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#e8e4df';" onmouseout="this.style.color='#666';">LinkedIn ↗</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:5px 12px;border:1px solid #1a2a1a;border-radius:20px;background:#0a1a0a;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#4CAF50;box-shadow:0 0 5px #4CAF50;flex-shrink:0;"></div>
+      <div style="font-size:9px;color:#3a6a3a;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;">Available</div>
     </div>
   </nav>
   <div class="stage" id="stage"></div>
   <div class="progress" id="progress"></div>
 
-  <div class="star">✳</div>
+
   <div class="overlay" id="overlay">
     <div class="overlay-inner">
       <div class="ov-nav">
@@ -343,19 +333,7 @@
 <!-- GESTURE TOAST -->
 <div class="gesture-toast" id="gesture-toast"></div>
 
-<!-- SCOREBOARD BUTTON (top right area) -->
-<button style="position:fixed;top:24px;right:24px;background:none;border:none;color:#2a2a2a;font-family:inherit;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:color 0.2s;z-index:200;padding:4px 0;" id="sb-btn" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#2a2a2a'">Leaderboard ↗</button>
 
-<!-- SCOREBOARD OVERLAY -->
-<div class="sb-overlay" id="sb-overlay">
-  <div class="sb-box">
-    <button class="sb-close" id="sb-close">×</button>
-    <div class="sb-title">🏆 Leaderboard</div>
-    <div class="sb-sub">Robot Wars · All-time scores</div>
-    <div id="sb-rows"></div>
-    <button class="sb-refresh" id="sb-refresh">↺ Refresh</button>
-  </div>
-</div>
 
 
 
@@ -487,6 +465,11 @@ document.getElementById('ov-back').addEventListener('click',()=>{
     overlayOpen=false;
     document.querySelectorAll('.fab, .fab-label').forEach(el=>el.style.display='');
   },450);
+});
+
+/* ── ABOUT ME BUTTON ── */
+document.getElementById('cv-page-btn').addEventListener('click',()=>{
+  window.location.href='about.html';
 });
 
 /* ── CHAT ── */
@@ -778,53 +761,7 @@ async function sendMessage(text){
 })();
 
 
-/* ── SCOREBOARD ── */
-(function(){
-  const btn     = document.getElementById('sb-btn');
-  const overlay = document.getElementById('sb-overlay');
-  const closeBtn= document.getElementById('sb-close');
-  const refresh = document.getElementById('sb-refresh');
-  const rowsEl  = document.getElementById('sb-rows');
 
-  const medals = ['🥇','🥈','🥉','4','5','6','7','8'];
-
-  async function loadScores(){
-    rowsEl.innerHTML = '<div class="sb-empty">Loading...</div>';
-    try{
-      const res = await window.storage.list('rw:', true);
-      if(!res || !res.keys || res.keys.length === 0){
-        rowsEl.innerHTML = '<div class="sb-empty">No scores yet — be the first to play! 🤖</div>';
-        return;
-      }
-      const entries = await Promise.all(res.keys.map(async k=>{
-        try{ const r = await window.storage.get(k, true); return r ? JSON.parse(r.value) : null; }
-        catch(e){ return null; }
-      }));
-      const sorted = entries.filter(Boolean).sort((a,b)=>b.score-a.score).slice(0,10);
-      rowsEl.innerHTML = `
-        <div class="sb-row sb-hdr">
-          <span class="sb-rank">#</span>
-          <span class="sb-name">Player</span>
-          <span class="sb-score">Score</span>
-          <span class="sb-wave">Wave</span>
-        </div>
-        ${sorted.map((e,i)=>`
-          <div class="sb-row">
-            <span class="sb-rank">${medals[i]||i+1}</span>
-            <span class="sb-name">${e.name}</span>
-            <span class="sb-score">${e.score.toLocaleString()}</span>
-            <span class="sb-wave">W${e.wave}</span>
-          </div>`).join('')}`;
-    }catch(err){
-      rowsEl.innerHTML = '<div class="sb-empty">Could not load scores.</div>';
-    }
-  }
-
-  btn.addEventListener('click', ()=>{ overlay.classList.add('open'); loadScores(); });
-  closeBtn.addEventListener('click', ()=> overlay.classList.remove('open'));
-  refresh.addEventListener('click', loadScores);
-  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.classList.remove('open'); });
-})();
 
 </script>
 </body>
