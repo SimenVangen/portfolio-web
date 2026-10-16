@@ -55,8 +55,8 @@
     .welcome-sub{font-size:13px;letter-spacing:0.1em;color:#888;text-transform:uppercase;min-height:1.4em;text-align:center;}
     .wcursor{display:inline-block;width:2px;height:0.9em;background:#e8e4df;margin-left:2px;vertical-align:text-bottom;animation:wblink 0.7s infinite;}
     @keyframes wblink{0%,100%{opacity:1;}50%{opacity:0;}}
-    .skip-btn{position:fixed;bottom:32px;right:32px;font-size:10px;letter-spacing:0.1em;color:#444;text-transform:uppercase;cursor:pointer;background:none;border:none;font-family:inherit;transition:color 0.2s;}
-    .skip-btn:hover{color:#888;}
+    .skip-btn{position:fixed;bottom:32px;right:32px;font-size:11px;letter-spacing:0.1em;color:#666;text-transform:uppercase;cursor:pointer;background:none;border:1px solid #2a2a2a;padding:6px 14px;border-radius:14px;font-family:inherit;transition:all 0.2s;z-index:1000;}
+    .skip-btn:hover{color:#c8c4bf;border-color:#555;}
 
     /* ── HINTS ── */
     .chat-hint{position:fixed;bottom:110px;right:36px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:300;pointer-events:none;animation:hintIn 0.9s ease 0.5s both,hintOut 0.8s ease 5s forwards;}
@@ -83,6 +83,25 @@
     #label-chat{bottom:92px;right:24px;width:64px;}
     #label-gesture{bottom:92px;left:24px;width:64px;}
     #label-roast{bottom:168px;left:24px;width:64px;z-index:198;}
+
+    /* ── SCOREBOARD ── */
+    .sb-overlay{position:fixed;inset:0;background:rgba(5,5,5,0.97);z-index:650;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+    .sb-overlay.open{opacity:1;pointer-events:auto;}
+    .sb-box{width:100%;max-width:440px;background:#111;border:1px solid #252525;border-radius:16px;padding:32px;position:relative;}
+    .sb-close{position:absolute;top:14px;right:18px;background:none;border:none;color:#333;cursor:pointer;font-size:20px;transition:color 0.2s;}
+    .sb-close:hover{color:#aaa;}
+    .sb-title{font-size:18px;font-weight:700;color:#e8e4df;margin-bottom:4px;}
+    .sb-sub{font-size:9px;letter-spacing:0.12em;color:#333;text-transform:uppercase;margin-bottom:20px;}
+    .sb-row{display:flex;gap:12px;font-size:12px;color:#555;letter-spacing:0.04em;padding:8px 0;border-bottom:1px solid #161616;align-items:center;}
+    .sb-row:last-child{border-bottom:none;}
+    .sb-row.sb-hdr{color:#222;font-size:9px;text-transform:uppercase;padding-bottom:10px;}
+    .sb-rank{width:24px;font-size:14px;}
+    .sb-name{flex:1;color:#c8c4bf;}
+    .sb-score{width:60px;text-align:right;color:#e8e4df;font-weight:600;}
+    .sb-wave{width:44px;text-align:right;color:#4CAF50;}
+    .sb-empty{font-size:12px;color:#555;text-align:center;padding:20px;letter-spacing:0.06em;}
+    .sb-refresh{background:none;border:1px solid #1e1e1e;color:#333;font-family:inherit;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:14px;cursor:pointer;transition:all 0.2s;margin-top:14px;display:block;width:100%;}
+    .sb-refresh:hover{border-color:#444;color:#888;}
 
     /* ── CHAT WINDOW ── */
     .chat-window{position:fixed;bottom:100px;right:24px;width:420px;height:560px;min-width:300px;min-height:300px;max-width:90vw;max-height:80vh;background:#111;border:1px solid #252525;border-radius:16px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(12px) scale(0.97);transform-origin:bottom right;transition:opacity 0.3s ease,transform 0.3s ease;z-index:199;overflow:hidden;resize:both;}
@@ -193,10 +212,14 @@
       <div class="nav-name">SIMEN<br>VANGEN</div>
       <div class="nav-role">Data Scientist<br>Embodied AI &amp; Robotics</div>
     </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0;"></div>
+      <div style="font-size:10px;color:#444;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5;">Available for<br>opportunities</div>
+    </div>
   </nav>
   <div class="stage" id="stage"></div>
   <div class="progress" id="progress"></div>
-  <div class="avail"><div class="dot"></div><div class="avail-text">Currently available<br>for opportunities</div></div>
+
   <div class="star">✳</div>
   <div class="overlay" id="overlay">
     <div class="overlay-inner">
@@ -320,6 +343,24 @@
 <!-- GESTURE TOAST -->
 <div class="gesture-toast" id="gesture-toast"></div>
 
+<!-- SCOREBOARD BUTTON (top right area) -->
+<button style="position:fixed;top:24px;right:24px;background:none;border:none;color:#2a2a2a;font-family:inherit;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:color 0.2s;z-index:200;padding:4px 0;" id="sb-btn" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#2a2a2a'">Leaderboard ↗</button>
+
+<!-- SCOREBOARD OVERLAY -->
+<div class="sb-overlay" id="sb-overlay">
+  <div class="sb-box">
+    <button class="sb-close" id="sb-close">×</button>
+    <div class="sb-title">🏆 Leaderboard</div>
+    <div class="sb-sub">Robot Wars · All-time scores</div>
+    <div id="sb-rows"></div>
+    <button class="sb-refresh" id="sb-refresh">↺ Refresh</button>
+  </div>
+</div>
+
+
+
+
+
 <script src="mediapipe/hands.min.js"></script>
 <script src="mediapipe/camera_utils.min.js"></script>
 
@@ -429,6 +470,7 @@ document.addEventListener('keydown',e=>{
 });
 function openProject(idx){
   const p=projects[idx]; overlayOpen=true;
+  document.querySelectorAll('.fab, .fab-label, .gesture-panel, .chat-window, .roast-window, .game-overlay').forEach(el=>el.style.display='none');
   document.getElementById('ov-title-sm').textContent=p.title.replace('\n',' ');
   document.getElementById('ov-hero-img').src=p.img;
   document.getElementById('ov-heading').textContent=p.heading;
@@ -439,7 +481,13 @@ function openProject(idx){
   p.media.forEach((src,mi)=>{ const im=document.createElement('img'); im.src=src; im.alt=''; if(mi===0&&p.media.length>=3) im.className='wide'; grid.appendChild(im); });
   overlay.scrollTop=0; overlay.classList.add('open');
 }
-document.getElementById('ov-back').addEventListener('click',()=>{ overlay.classList.remove('open'); setTimeout(()=>{overlayOpen=false;},450); });
+document.getElementById('ov-back').addEventListener('click',()=>{
+  overlay.classList.remove('open');
+  setTimeout(()=>{
+    overlayOpen=false;
+    document.querySelectorAll('.fab, .fab-label').forEach(el=>el.style.display='');
+  },450);
+});
 
 /* ── CHAT ── */
 const chatBtn=document.getElementById('chat-btn');
@@ -510,7 +558,13 @@ async function sendMessage(text){
   async function type(text,speed=80){for(let c of text){el.textContent+=c;await sleep(speed+(Math.random()*25-10));}}
   async function del(n,speed=50){for(let i=0;i<n;i++){el.textContent=el.textContent.slice(0,-1);await sleep(speed);}}
   async function typeSub(text){sub.textContent='';for(let c of text){sub.textContent+=c;await sleep(55);}}
-  function dismiss(){welcome.classList.add('hidden');setTimeout(()=>{welcome.style.display='none';},700);}
+  function dismiss(){
+    welcome.classList.add('hidden');
+    setTimeout(()=>{
+      welcome.style.display='none';
+      welcome.style.pointerEvents='none';
+    },700);
+  }
   async function run(){
     await sleep(500);
     await type('Welcome to Simen Pofffolio');
@@ -722,6 +776,56 @@ async function sendMessage(text){
     if(g==='fist'){ chatWin.classList.remove('open'); showToast('✊ Chat closed'); }
   }
 })();
+
+
+/* ── SCOREBOARD ── */
+(function(){
+  const btn     = document.getElementById('sb-btn');
+  const overlay = document.getElementById('sb-overlay');
+  const closeBtn= document.getElementById('sb-close');
+  const refresh = document.getElementById('sb-refresh');
+  const rowsEl  = document.getElementById('sb-rows');
+
+  const medals = ['🥇','🥈','🥉','4','5','6','7','8'];
+
+  async function loadScores(){
+    rowsEl.innerHTML = '<div class="sb-empty">Loading...</div>';
+    try{
+      const res = await window.storage.list('rw:', true);
+      if(!res || !res.keys || res.keys.length === 0){
+        rowsEl.innerHTML = '<div class="sb-empty">No scores yet — be the first to play! 🤖</div>';
+        return;
+      }
+      const entries = await Promise.all(res.keys.map(async k=>{
+        try{ const r = await window.storage.get(k, true); return r ? JSON.parse(r.value) : null; }
+        catch(e){ return null; }
+      }));
+      const sorted = entries.filter(Boolean).sort((a,b)=>b.score-a.score).slice(0,10);
+      rowsEl.innerHTML = `
+        <div class="sb-row sb-hdr">
+          <span class="sb-rank">#</span>
+          <span class="sb-name">Player</span>
+          <span class="sb-score">Score</span>
+          <span class="sb-wave">Wave</span>
+        </div>
+        ${sorted.map((e,i)=>`
+          <div class="sb-row">
+            <span class="sb-rank">${medals[i]||i+1}</span>
+            <span class="sb-name">${e.name}</span>
+            <span class="sb-score">${e.score.toLocaleString()}</span>
+            <span class="sb-wave">W${e.wave}</span>
+          </div>`).join('')}`;
+    }catch(err){
+      rowsEl.innerHTML = '<div class="sb-empty">Could not load scores.</div>';
+    }
+  }
+
+  btn.addEventListener('click', ()=>{ overlay.classList.add('open'); loadScores(); });
+  closeBtn.addEventListener('click', ()=> overlay.classList.remove('open'));
+  refresh.addEventListener('click', loadScores);
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.classList.remove('open'); });
+})();
+
 </script>
 </body>
 </html>
