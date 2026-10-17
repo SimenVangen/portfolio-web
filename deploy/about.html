@@ -5,263 +5,267 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Simen Vangen — About</title>
 <style>
-  :root{--bg:#0d0d0d;--ink:#e8e4df;--muted:#888;--accent:#c8c4bf;--green:#4CAF50;}
+  :root{--bg:#0d0d0d;--ink:#e8e4df;--accent:#c8c4bf;--muted:#555;--green:#4CAF50;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden;}
 
   /* ── NAV ── */
-  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;}
-  .nav-name{font-size:13px;font-weight:700;color:#fff;letter-spacing:0.04em;}
-  .back-btn{font-size:11px;letter-spacing:0.1em;color:#888;text-decoration:none;text-transform:uppercase;transition:color 0.2s;border:1px solid #2a2a2a;padding:6px 14px;border-radius:20px;}
-  .back-btn:hover{color:var(--accent);border-color:#555;}
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;mix-blend-mode:normal;}
+  .nav-logo{font-size:15px;font-weight:800;color:#fff;letter-spacing:0.04em;text-decoration:none;}
+  .back-btn{font-size:11px;letter-spacing:0.1em;color:#888;text-decoration:none;text-transform:uppercase;transition:all 0.2s;border:1px solid #2a2a2a;padding:7px 16px;border-radius:20px;}
+  .back-btn:hover{color:#e8e4df;border-color:#555;}
 
   /* ── HERO ── */
-  .hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;padding:0 24px;}
-  .hero-greeting{font-size:12px;letter-spacing:0.2em;color:#666;text-transform:uppercase;}
-  .hero-name{font-size:clamp(52px,8vw,100px);font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1;}
-  .hero-role{font-size:clamp(15px,2vw,20px);color:#666;letter-spacing:0.04em;}
-  .hero-scroll{font-size:11px;letter-spacing:0.1em;color:#444;text-transform:uppercase;margin-top:32px;animation:bounce 2s infinite;}
-  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden;}
+  .hero-eyebrow{font-size:11px;letter-spacing:0.2em;color:#555;text-transform:uppercase;margin-bottom:20px;}
+  .hero-name{font-size:clamp(72px,12vw,160px);font-weight:800;color:#fff;letter-spacing:-0.04em;line-height:0.9;margin-bottom:32px;}
+  .hero-name span{display:block;}
+  .hero-role-row{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+  .hero-role{font-size:clamp(14px,1.8vw,18px);color:#555;letter-spacing:0.04em;line-height:1.7;max-width:400px;}
+  .hero-avail{display:flex;align-items:center;gap:8px;}
+  .hero-avail-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);}
+  .hero-avail-text{font-size:11px;color:#3a6a3a;letter-spacing:0.1em;text-transform:uppercase;}
+  .hero-line{position:absolute;bottom:0;left:48px;right:48px;height:1px;background:#1a1a1a;}
 
-  /* ── SECTION WRAPPER ── */
-  section{padding:80px 0;position:relative;}
-  .container{max-width:900px;margin:0 auto;padding:0 48px;}
-  .section-label{font-size:12px;letter-spacing:0.2em;color:#666;text-transform:uppercase;margin-bottom:40px;display:flex;align-items:center;gap:16px;font-weight:600;}
-  .section-label::after{content:'';flex:1;height:1px;background:#252525;}
+  /* ── MARQUEE ── */
+  .marquee-wrap{overflow:hidden;border-bottom:1px solid #1a1a1a;padding:20px 0;}
+  .marquee-track{display:flex;gap:0;animation:marquee 18s linear infinite;width:max-content;}
+  .marquee-track span{font-size:12px;letter-spacing:0.14em;color:#2a2a2a;text-transform:uppercase;padding:0 32px;white-space:nowrap;}
+  .marquee-track span.dot{color:#333;padding:0 8px;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-  /* ── INTRO ── */
-  .intro-text{font-size:20px;line-height:1.9;color:#888;max-width:640px;}
-  .intro-text strong{color:#e8e4df;font-weight:600;}
+  /* ── SECTIONS ── */
+  .section{padding:100px 48px;border-bottom:1px solid #141414;}
+  .section-inner{max-width:1000px;margin:0 auto;}
+  .section-row{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;}
+  .section-eyebrow{font-size:10px;letter-spacing:0.2em;color:#333;text-transform:uppercase;padding-top:6px;line-height:1.6;}
+  .section-eyebrow span{display:block;font-size:20px;margin-bottom:4px;}
+
+  /* ── ABOUT TEXT ── */
+  .about-big{font-size:clamp(24px,3.5vw,42px);font-weight:600;color:#e8e4df;line-height:1.35;letter-spacing:-0.02em;margin-bottom:32px;}
+  .about-big em{color:#555;font-style:normal;}
+  .about-body{font-size:16px;line-height:1.9;color:#666;max-width:600px;}
+  .about-body strong{color:#c8c4bf;font-weight:500;}
 
   /* ── WORK CARDS ── */
-  #work-section{padding:80px 0 120px;}
-  #stage{position:relative;width:100%;height:520px;perspective:1400px;overflow:visible;}
+  #stage{position:relative;width:100%;height:480px;perspective:1400px;}
   #card-field{position:absolute;top:50%;left:50%;width:0;height:0;transform-style:preserve-3d;}
   .wcard{--w:220px;--h:280px;--d:18px;position:absolute;top:0;left:0;width:var(--w);height:var(--h);margin:-140px 0 0 -110px;cursor:pointer;transform-style:preserve-3d;transition:filter 0.3s;}
   .wcard:hover{filter:brightness(1.2);}
   .wcard-face{position:absolute;inset:0;border-radius:16px;display:flex;flex-direction:column;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
-  .wcard-front{transform:translateZ(calc(var(--d)/2));background:#161616;border:1px solid #2a2a2a;}
-  .wcard-back{transform:rotateY(180deg) translateZ(calc(var(--d)/2));background:#161616;border:1px solid #2a2a2a;align-items:center;justify-content:center;}
+  .wcard-front{transform:translateZ(calc(var(--d)/2));background:#161616;border:1px solid #252525;}
+  .wcard-back{transform:rotateY(180deg) translateZ(calc(var(--d)/2));background:#161616;border:1px solid #252525;align-items:center;justify-content:center;}
   .wcard-edge{position:absolute;backface-visibility:hidden;}
   .wcard-edge-r,.wcard-edge-l{top:0;left:50%;width:var(--d);height:var(--h);margin-left:calc(var(--d)/-2);}
-  .wcard-edge-r{transform:rotateY(90deg) translateZ(calc(var(--w)/2));background:#222;}
-  .wcard-edge-l{transform:rotateY(-90deg) translateZ(calc(var(--w)/2));background:#222;}
+  .wcard-edge-r{transform:rotateY(90deg) translateZ(calc(var(--w)/2));background:#1e1e1e;}
+  .wcard-edge-l{transform:rotateY(-90deg) translateZ(calc(var(--w)/2));background:#1e1e1e;}
   .wcard-edge-t,.wcard-edge-b{left:0;top:50%;width:var(--w);height:var(--d);margin-top:calc(var(--d)/-2);}
-  .wcard-edge-t{transform:rotateX(90deg) translateZ(calc(var(--h)/2));background:#222;}
-  .wcard-edge-b{transform:rotateX(-90deg) translateZ(calc(var(--h)/2));background:#222;}
+  .wcard-edge-t{transform:rotateX(90deg) translateZ(calc(var(--h)/2));background:#1e1e1e;}
+  .wcard-edge-b{transform:rotateX(-90deg) translateZ(calc(var(--h)/2));background:#1e1e1e;}
   .wcard-top{height:50%;display:flex;align-items:center;justify-content:center;font-size:44px;flex-shrink:0;}
   .wcard-body{padding:16px;border-top:1px solid #252525;flex:1;}
-  .wcard-title{font-size:14px;font-weight:700;color:#e8e4df;letter-spacing:0.01em;margin-bottom:4px;}
-  .wcard-place{font-size:11px;color:#666;letter-spacing:0.04em;margin-bottom:4px;}
-  .wcard-date{font-size:10px;color:#444;letter-spacing:0.06em;text-transform:uppercase;}
-  .wcard-hint{font-size:10px;color:#444;margin-top:10px;letter-spacing:0.06em;}
+  .wcard-title{font-size:14px;font-weight:700;color:#e8e4df;margin-bottom:4px;}
+  .wcard-place{font-size:11px;color:#555;margin-bottom:4px;}
+  .wcard-date{font-size:10px;color:#333;text-transform:uppercase;letter-spacing:0.06em;}
+  .wcard-hint{font-size:10px;color:#333;margin-top:10px;}
 
   /* ── JOB OVERLAY ── */
-  #job-overlay{position:fixed;inset:0;z-index:200;background:rgba(5,5,5,0.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease;padding:24px;}
+  #job-overlay{position:fixed;inset:0;z-index:200;background:rgba(5,5,5,0.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease;padding:24px;}
   #job-overlay.open{opacity:1;pointer-events:auto;}
-  #job-panel{max-width:580px;width:100%;background:#161616;border:1px solid #2a2a2a;border-radius:18px;padding:36px;transform:scale(0.95);transition:transform 0.3s ease;max-height:85vh;overflow-y:auto;}
+  #job-panel{max-width:600px;width:100%;background:#111;border:1px solid #252525;border-radius:20px;padding:40px;transform:scale(0.95);transition:transform 0.3s ease;max-height:85vh;overflow-y:auto;position:relative;}
   #job-overlay.open #job-panel{transform:scale(1);}
-  .job-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#555;font-size:22px;cursor:pointer;transition:color 0.2s;}
+  .job-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#444;font-size:24px;cursor:pointer;transition:color 0.2s;line-height:1;}
   .job-close:hover{color:#e8e4df;}
-  .job-emoji{font-size:44px;margin-bottom:14px;}
-  .job-title{font-size:24px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin-bottom:4px;}
-  .job-place{font-size:14px;color:#666;letter-spacing:0.04em;margin-bottom:2px;}
-  .job-date{font-size:11px;color:#444;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;}
-  .job-divider{height:1px;background:#252525;margin:18px 0;}
-  .job-section-title{font-size:10px;letter-spacing:0.14em;color:#555;text-transform:uppercase;margin-bottom:10px;}
-  .job-desc{font-size:15px;line-height:1.85;color:#888;}
-  .job-learned{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
-  .job-tag{font-size:11px;color:#888;border:1px solid #2a2a2a;padding:5px 12px;border-radius:14px;letter-spacing:0.04em;}
-  .job-highlight{font-size:14px;color:#666;line-height:1.75;font-style:italic;border-left:2px solid #333;padding-left:16px;margin-top:14px;}
+  .job-emoji{font-size:48px;margin-bottom:16px;display:block;}
+  .job-title{font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin-bottom:4px;}
+  .job-place{font-size:14px;color:#555;margin-bottom:2px;}
+  .job-date{font-size:11px;color:#333;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;}
+  .job-divider{height:1px;background:#1e1e1e;margin:20px 0;}
+  .job-section-title{font-size:10px;letter-spacing:0.14em;color:#444;text-transform:uppercase;margin-bottom:12px;}
+  .job-desc{font-size:15px;line-height:1.9;color:#777;}
+  .job-highlight{font-size:14px;color:#555;line-height:1.75;font-style:italic;border-left:2px solid #252525;padding-left:18px;margin-top:16px;}
+  .job-learned{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .job-tag{font-size:11px;color:#666;border:1px solid #252525;padding:5px 14px;border-radius:20px;}
 
   /* ── EDUCATION ── */
-  .edu-card{background:#161616;border:1px solid #252525;border-radius:12px;padding:28px;margin-bottom:12px;display:grid;grid-template-columns:100px 1fr;gap:0 28px;transition:border-color 0.2s;}
-  .edu-card:hover{border-color:#3a3a3a;}
-  .edu-year{font-size:11px;color:#444;letter-spacing:0.06em;padding-top:4px;}
-  .edu-title{font-size:18px;font-weight:600;color:#e8e4df;margin-bottom:4px;}
-  .edu-place{font-size:13px;color:#666;margin-bottom:10px;}
-  .edu-desc{font-size:14px;color:#777;line-height:1.75;}
+  .edu-entry{padding:32px 0;border-bottom:1px solid #141414;}
+  .edu-entry:last-child{border-bottom:none;}
+  .edu-year{font-size:11px;color:#333;letter-spacing:0.06em;margin-bottom:8px;text-transform:uppercase;}
+  .edu-title{font-size:24px;font-weight:700;color:#e8e4df;letter-spacing:-0.01em;margin-bottom:4px;}
+  .edu-place{font-size:14px;color:#555;margin-bottom:12px;}
+  .edu-desc{font-size:15px;color:#666;line-height:1.8;max-width:600px;}
 
   /* ── SKILLS ── */
   .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-  .skill-card{background:#161616;border:1px solid #252525;border-radius:12px;padding:20px;}
-  .skill-cat{font-size:10px;letter-spacing:0.12em;color:#888;text-transform:uppercase;margin-bottom:12px;font-weight:600;}
-  .skill-pills{display:flex;flex-wrap:wrap;gap:7px;}
-  .skill-pill{font-size:12px;color:#c8c4bf;background:#1e1e1e;border:1px solid #2a2a2a;padding:4px 10px;border-radius:6px;}
-
-
+  .skill-card{background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:22px;}
+  .skill-cat{font-size:10px;letter-spacing:0.14em;color:#555;text-transform:uppercase;margin-bottom:14px;font-weight:600;}
+  .skill-pills{display:flex;flex-wrap:wrap;gap:8px;}
+  .skill-pill{font-size:12px;color:#c8c4bf;background:#1a1a1a;border:1px solid #252525;padding:5px 12px;border-radius:6px;}
 
   /* ── LANGUAGES ── */
   .lang-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-  .lang-card{background:#161616;border:1px solid #252525;border-radius:12px;padding:24px;}
-  .lang-name{font-size:18px;font-weight:600;color:#e8e4df;margin-bottom:4px;}
-  .lang-level{font-size:11px;letter-spacing:0.08em;color:#555;text-transform:uppercase;margin-bottom:16px;}
-  .lang-bar-wrap{height:3px;background:#252525;border-radius:2px;}
-  .lang-bar{height:100%;border-radius:2px;transition:width 1.2s ease;}
+  .lang-card{background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:24px;}
+  .lang-name{font-size:20px;font-weight:700;color:#e8e4df;margin-bottom:4px;}
+  .lang-level{font-size:11px;letter-spacing:0.08em;color:#444;text-transform:uppercase;margin-bottom:16px;}
+  .lang-bar-wrap{height:2px;background:#1e1e1e;border-radius:2px;}
+  .lang-bar{height:100%;border-radius:2px;}
 
   /* ── FUN FACTS ── */
   .facts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-  .fact-card{background:#161616;border:1px solid #252525;border-radius:12px;padding:24px;display:flex;gap:16px;align-items:flex-start;}
-  .fact-emoji{font-size:28px;flex-shrink:0;}
-  .fact-text{font-size:14px;color:#777;line-height:1.75;}
+  .fact-card{background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:28px;display:flex;gap:18px;}
+  .fact-emoji{font-size:32px;flex-shrink:0;}
+  .fact-text{font-size:15px;color:#666;line-height:1.75;}
   .fact-text strong{color:#e8e4df;font-weight:600;}
 
   /* ── INTERESTS ── */
   .interest-wrap{display:flex;flex-wrap:wrap;gap:12px;}
-  .interest-pill{font-size:14px;color:#888;border:1px solid #2a2a2a;padding:10px 20px;border-radius:24px;letter-spacing:0.02em;transition:all 0.2s;cursor:default;background:#161616;}
-  .interest-pill:hover{color:#e8e4df;border-color:#555;background:#1e1e1e;}
+  .interest-pill{font-size:14px;color:#777;border:1px solid #1e1e1e;padding:10px 22px;border-radius:28px;transition:all 0.2s;cursor:default;background:#111;}
+  .interest-pill:hover{color:#e8e4df;border-color:#444;}
 
   /* ── CONTACT ── */
+  .contact-big{font-size:clamp(36px,6vw,80px);font-weight:800;color:#e8e4df;letter-spacing:-0.03em;line-height:1;margin-bottom:32px;}
   .contact-links{display:flex;gap:12px;flex-wrap:wrap;}
-  .contact-link{font-size:13px;color:#888;text-decoration:none;border:1px solid #2a2a2a;padding:10px 22px;border-radius:22px;letter-spacing:0.06em;transition:all 0.2s;background:#161616;}
+  .contact-link{font-size:13px;color:#888;text-decoration:none;border:1px solid #252525;padding:11px 24px;border-radius:24px;transition:all 0.2s;background:#111;}
   .contact-link:hover{color:#e8e4df;border-color:#555;}
 
-  @media(max-width:640px){
+  @media(max-width:700px){
     .nav{padding:20px 24px;}
-    .container{padding:0 24px;}
+    .hero{padding:0 24px 60px;}
+    .section{padding:60px 24px;}
+    .section-row{grid-template-columns:1fr;gap:16px;}
     .skills-grid,.lang-grid{grid-template-columns:1fr 1fr;}
     .facts-grid{grid-template-columns:1fr;}
-    #stage{height:420px;}
+    #stage{height:400px;}
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="nav-name">SIMEN VANGEN</div>
+  <a class="nav-logo" href="index.html">SV.</a>
   <a class="back-btn" href="#" onclick="history.back();return false;">← Portfolio</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-greeting">Hello, I'm</div>
-  <div class="hero-name">Simen.</div>
-  <div class="hero-role">Data Scientist · Embodied AI · Robotics</div>
-  <div class="hero-scroll">Scroll to explore ↓</div>
+  <div class="hero-eyebrow">— the human behind the code</div>
+  <div class="hero-name">
+    <span>Simen</span>
+    <span>Vangen.</span>
+  </div>
+  <div class="hero-role-row">
+    <div class="hero-role">Data Scientist focused on Embodied AI & Robotics.<br>Building systems that perceive, decide, and act.</div>
+    <div class="hero-avail"><div class="hero-avail-dot"></div><div class="hero-avail-text">Available for opportunities</div></div>
+  </div>
+  <div class="hero-line"></div>
 </div>
 
-<!-- INTRO -->
-<section>
-  <div class="container">
-    <div class="section-label">About me</div>
-    <p class="intro-text">
-      Norwegian data scientist obsessed with <strong>embodied AI and robotics</strong> — building systems that perceive, decide, and act in the physical world. I served in the <strong>Norwegian Navy</strong>, managed a bar, then went all-in on AI. Currently living in <strong>China</strong> studying Mandarin and building projects that actually do something.
-    </p>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Embodied AI</span><span class="dot">·</span><span>Computer Vision</span><span class="dot">·</span><span>Robotics</span><span class="dot">·</span><span>PyTorch</span><span class="dot">·</span><span>FastAPI</span><span class="dot">·</span><span>MediaPipe</span><span class="dot">·</span><span>YOLOv8</span><span class="dot">·</span><span>LLaMA 3.3</span><span class="dot">·</span><span>RAG</span><span class="dot">·</span><span>Raspberry Pi</span><span class="dot">·</span>
+    <span>Embodied AI</span><span class="dot">·</span><span>Computer Vision</span><span class="dot">·</span><span>Robotics</span><span class="dot">·</span><span>PyTorch</span><span class="dot">·</span><span>FastAPI</span><span class="dot">·</span><span>MediaPipe</span><span class="dot">·</span><span>YOLOv8</span><span class="dot">·</span><span>LLaMA 3.3</span><span class="dot">·</span><span>RAG</span><span class="dot">·</span><span>Raspberry Pi</span><span class="dot">·</span>
   </div>
-</section>
+</div>
 
-<!-- WORK CARDS -->
-<section id="work-section">
-  <div class="container">
-    <div class="section-label">Work Experience</div>
-    <p style="font-size:12px;color:#2a2a2a;letter-spacing:0.06em;margin-bottom:40px;">Click a card to open it ↓</p>
+<!-- ABOUT -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-row">
+      <div class="section-eyebrow"><span>01</span>About me</div>
+      <div>
+        <div class="about-big">Norwegian data scientist.<br><em>Slightly unconventional path.</em><br>All-in on embodied AI.</div>
+        <div class="about-body">I served in the <strong>Norwegian Navy</strong>, managed a bar, and somewhere in between decided to go all-in on AI. I completed my BSc in Data Science at Kristiania University, moved to <strong>China</strong> to study Mandarin, and have been building things that actually work ever since. My focus is on systems that don't just think — they perceive, decide, and act in the physical world.</div>
+      </div>
+    </div>
   </div>
-  <div id="stage">
-    <div id="card-field"></div>
+</div>
+
+<!-- WORK -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-row" style="margin-bottom:48px;">
+      <div class="section-eyebrow"><span>02</span>Work Experience</div>
+      <div style="font-size:14px;color:#333;letter-spacing:0.06em;">Click a card to explore ↓</div>
+    </div>
+    <div id="stage"><div id="card-field"></div></div>
   </div>
-</section>
+</div>
 
 <!-- EDUCATION -->
-<section>
-  <div class="container">
-    <div class="section-label">Education</div>
-    <div class="edu-card">
-      <div class="edu-year">2021–2025</div>
+<div class="section">
+  <div class="section-inner">
+    <div class="section-row">
+      <div class="section-eyebrow"><span>03</span>Education</div>
       <div>
-        <div class="edu-title">BSc Data Science</div>
-        <div class="edu-place">Kristiania University College, Oslo</div>
-        <div class="edu-desc">Thesis: "The Predictive Potential of Social Media" — predicting Spotify streaming performance using XGBoost, NLP features, and social media signals. XGBoost outperformed all baselines. YouTube subscribers were the single most influential predictor.</div>
+        <div class="edu-entry">
+          <div class="edu-year">2021 – 2025</div>
+          <div class="edu-title">BSc Data Science</div>
+          <div class="edu-place">Kristiania University College, Oslo</div>
+          <div class="edu-desc">Thesis: "The Predictive Potential of Social Media" — predicting Spotify streaming performance using XGBoost, NLP, and social media signals. XGBoost outperformed every model tested. YouTube subscriber count was the most predictive single feature.</div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- SKILLS -->
-<section>
-  <div class="container">
-    <div class="section-label">Skills</div>
+<div class="section">
+  <div class="section-inner">
+    <div class="section-row" style="margin-bottom:36px;">
+      <div class="section-eyebrow"><span>04</span>Skills</div>
+      <div></div>
+    </div>
     <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-cat">Machine Learning</div>
-        <div class="skill-pills">
-          <span class="skill-pill">PyTorch</span><span class="skill-pill">XGBoost</span><span class="skill-pill">scikit-learn</span><span class="skill-pill">YOLOv8</span><span class="skill-pill">Transformers</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Backend & APIs</div>
-        <div class="skill-pills">
-          <span class="skill-pill">FastAPI</span><span class="skill-pill">Python</span><span class="skill-pill">FAISS</span><span class="skill-pill">Railway</span><span class="skill-pill">PostgreSQL</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Frontend</div>
-        <div class="skill-pills">
-          <span class="skill-pill">React</span><span class="skill-pill">JavaScript</span><span class="skill-pill">HTML/CSS</span><span class="skill-pill">MediaPipe</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">AI & LLMs</div>
-        <div class="skill-pills">
-          <span class="skill-pill">RAG</span><span class="skill-pill">LLaMA 3.3</span><span class="skill-pill">Groq</span><span class="skill-pill">Prompt Eng.</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Data & Analysis</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Pandas</span><span class="skill-pill">NumPy</span><span class="skill-pill">Matplotlib</span><span class="skill-pill">SQL</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Tools & Infra</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Git</span><span class="skill-pill">Docker</span><span class="skill-pill">Netlify</span><span class="skill-pill">Raspberry Pi</span>
-        </div>
-      </div>
+      <div class="skill-card"><div class="skill-cat">Machine Learning</div><div class="skill-pills"><span class="skill-pill">PyTorch</span><span class="skill-pill">XGBoost</span><span class="skill-pill">scikit-learn</span><span class="skill-pill">YOLOv8</span><span class="skill-pill">Transformers</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Backend & APIs</div><div class="skill-pills"><span class="skill-pill">FastAPI</span><span class="skill-pill">Python</span><span class="skill-pill">FAISS</span><span class="skill-pill">Railway</span><span class="skill-pill">PostgreSQL</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Frontend</div><div class="skill-pills"><span class="skill-pill">React</span><span class="skill-pill">JavaScript</span><span class="skill-pill">HTML/CSS</span><span class="skill-pill">MediaPipe</span></div></div>
+      <div class="skill-card"><div class="skill-cat">AI & LLMs</div><div class="skill-pills"><span class="skill-pill">RAG</span><span class="skill-pill">LLaMA 3.3</span><span class="skill-pill">Groq</span><span class="skill-pill">Prompt Eng.</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Data & Analysis</div><div class="skill-pills"><span class="skill-pill">Pandas</span><span class="skill-pill">NumPy</span><span class="skill-pill">Matplotlib</span><span class="skill-pill">SQL</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Tools & Infra</div><div class="skill-pills"><span class="skill-pill">Git</span><span class="skill-pill">Docker</span><span class="skill-pill">Netlify</span><span class="skill-pill">Raspberry Pi</span></div></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- LANGUAGES -->
-<section>
-  <div class="container">
-    <div class="section-label">Languages</div>
+<div class="section">
+  <div class="section-inner">
+    <div class="section-row" style="margin-bottom:36px;">
+      <div class="section-eyebrow"><span>05</span>Languages</div>
+      <div></div>
+    </div>
     <div class="lang-grid">
-      <div class="lang-card">
-        <div class="lang-name">Norwegian</div>
-        <div class="lang-level">Native</div>
-        <div class="lang-bar-wrap"><div class="lang-bar" style="width:100%;background:#4CAF50;"></div></div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-name">English</div>
-        <div class="lang-level">Fluent</div>
-        <div class="lang-bar-wrap"><div class="lang-bar" style="width:95%;background:#4488cc;"></div></div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-name">Mandarin</div>
-        <div class="lang-level">Intermediate · HSK3</div>
-        <div class="lang-bar-wrap"><div class="lang-bar" style="width:40%;background:#cc8800;"></div></div>
-      </div>
+      <div class="lang-card"><div class="lang-name">Norwegian</div><div class="lang-level">Native</div><div class="lang-bar-wrap"><div class="lang-bar" style="width:100%;background:#4CAF50;"></div></div></div>
+      <div class="lang-card"><div class="lang-name">English</div><div class="lang-level">Fluent</div><div class="lang-bar-wrap"><div class="lang-bar" style="width:95%;background:#4488cc;"></div></div></div>
+      <div class="lang-card"><div class="lang-name">Mandarin</div><div class="lang-level">Intermediate · HSK3</div><div class="lang-bar-wrap"><div class="lang-bar" style="width:40%;background:#cc8800;"></div></div></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FUN FACTS -->
-<section>
-  <div class="container">
-    <div class="section-label">Fun Facts</div>
+<div class="section">
+  <div class="section-inner">
+    <div class="section-row" style="margin-bottom:36px;">
+      <div class="section-eyebrow"><span>06</span>Fun Facts</div>
+      <div></div>
+    </div>
     <div class="facts-grid">
-      <div class="fact-card"><div class="fact-emoji">🇳🇴</div><div class="fact-text">Served in the <strong>Norwegian Navy</strong> for 1.5 years before pivoting to AI. Turns out discipline from the military is extremely useful for debugging at 2am.</div></div>
-      <div class="fact-card"><div class="fact-emoji">🍹</div><div class="fact-text">Was a <strong>bar manager</strong> before becoming a data scientist. First "data project" was a spreadsheet tracking bar inventory. Technically ML-adjacent.</div></div>
-      <div class="fact-card"><div class="fact-emoji">🇨🇳</div><div class="fact-text">Moved to <strong>China</strong> to learn Mandarin after failing to land a job. Ended up building more there than anywhere else.</div></div>
-      <div class="fact-card"><div class="fact-emoji">🤖</div><div class="fact-text">Tried to build a <strong>robotic arm</strong> to pick lychees. Gave up. Built a fruit-monitoring drone instead. The arm idea is still alive though.</div></div>
+      <div class="fact-card"><div class="fact-emoji">⚓</div><div class="fact-text">Served in the <strong>Norwegian Navy</strong> for 1.5 years. Discipline from military service is surprisingly useful for debugging at 2am.</div></div>
+      <div class="fact-card"><div class="fact-emoji">🍹</div><div class="fact-text">Was a <strong>bar manager</strong> before becoming a data scientist. First "data project" was a spreadsheet tracking bar inventory.</div></div>
+      <div class="fact-card"><div class="fact-emoji">🇨🇳</div><div class="fact-text">Moved to <strong>China</strong> after failing to land a job. Ended up building more there than anywhere else.</div></div>
+      <div class="fact-card"><div class="fact-emoji">🤖</div><div class="fact-text">Tried to build a <strong>robotic arm</strong> to pick lychees. Gave up on the arm. Built a fruit-monitoring drone instead. The arm idea is still alive.</div></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- INTERESTS -->
-<section>
-  <div class="container">
-    <div class="section-label">Interests</div>
+<div class="section">
+  <div class="section-inner">
+    <div class="section-row" style="margin-bottom:36px;">
+      <div class="section-eyebrow"><span>07</span>Interests</div>
+      <div></div>
+    </div>
     <div class="interest-wrap">
       <span class="interest-pill">Embodied AI</span>
       <span class="interest-pill">Robotics & Manipulation</span>
@@ -269,31 +273,31 @@
       <span class="interest-pill">Sim-to-Real Transfer</span>
       <span class="interest-pill">Edge Inference</span>
       <span class="interest-pill">LLM-guided Robotics</span>
-      <span class="interest-pill">Mandarin</span>
-      <span class="interest-pill">Football</span>
-      <span class="interest-pill">Building things that ship</span>
+      <span class="interest-pill">Mandarin 中文</span>
+      <span class="interest-pill">Football ⚽</span>
+      <span class="interest-pill">Building things that ship 🚀</span>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
-<section style="padding-bottom:120px;">
-  <div class="container">
-    <div class="section-label">Get in Touch</div>
-    <p style="font-size:14px;color:#444;line-height:1.8;margin-bottom:20px;max-width:500px;">Open to ML Engineer and AI Researcher roles — remote, relocation, or on-site anywhere interesting.</p>
+<div class="section" style="border-bottom:none;padding-bottom:120px;">
+  <div class="section-inner">
+    <div class="contact-big">Let's<br>talk.</div>
+    <p style="font-size:15px;color:#555;line-height:1.8;margin-bottom:28px;max-width:500px;">Open to ML Engineer and AI Researcher roles — remote, relocation, or on-site anywhere interesting.</p>
     <div class="contact-links">
       <a class="contact-link" href="https://www.linkedin.com/in/simen-vangen/" target="_blank">LinkedIn ↗</a>
       <a class="contact-link" href="https://github.com/SimenVangen" target="_blank">GitHub ↗</a>
       <a class="contact-link" href="#" onclick="history.back();return false;">← Back to Portfolio</a>
     </div>
   </div>
-</section>
+</div>
 
 <!-- JOB OVERLAY -->
 <div id="job-overlay">
-  <div id="job-panel" style="position:relative;">
+  <div id="job-panel">
     <button class="job-close" id="job-close">×</button>
-    <div class="job-emoji" id="jo-emoji"></div>
+    <span class="job-emoji" id="jo-emoji"></span>
     <div class="job-title" id="jo-title"></div>
     <div class="job-place" id="jo-place"></div>
     <div class="job-date" id="jo-date"></div>
@@ -307,115 +311,58 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
 <script>
-const JOBS = [
-  {
-    emoji: '🤖',
-    title: 'Data Science Intern',
-    place: 'Nexro',
-    date: '2024 · 6 months',
-    color: '#4CAF50',
-    desc: 'Built ML models predicting Spotify streaming metrics from social media data. Developed the full pipeline from data collection to model deployment and evaluation. Presented findings to the team and stakeholders.',
-    highlight: '"XGBoost outperformed every other model we tested. YouTube subscriber count was the single most predictive feature — more than any direct music metric."',
-    learned: ['Python','XGBoost','NLP','FastAPI','Data Pipelines','Stakeholder Communication','Model Evaluation']
-  },
-  {
-    emoji: '🍹',
-    title: 'Bar Manager',
-    place: 'Granbar',
-    date: '2022 – 2023 · 1 year',
-    color: '#cc8800',
-    desc: 'Managed daily bar operations, staff scheduling, inventory, and supplier relations. Built spreadsheet-based forecasting tools to predict busy nights and optimise stock — the first "data project" before the formal ones.',
-    highlight: '"Running a bar is basically operations research. You have demand forecasting, inventory management, queue theory, and staff scheduling all happening in real time every night."',
-    learned: ['Leadership','Operations','Inventory Management','Forecasting','Excel/Sheets','Customer Service','Pressure']
-  },
-  {
-    emoji: '⚓',
-    title: 'Service Member',
-    place: 'Norwegian Navy',
-    date: '2020 – 2021 · 1.5 years',
-    color: '#4488cc',
-    desc: 'Completed mandatory military service in the Norwegian Navy. Worked in operational roles requiring discipline, fast decision-making under pressure, and clear communication within a structured team environment.',
-    highlight: '"Military service taught me that systems either work or they don\'t — there is no \'it kind of works\'. That mindset carries directly into engineering."',
-    learned: ['Discipline','Operational Thinking','Teamwork','Decision-making under pressure','Physical & Mental Resilience']
-  },
+const JOBS=[
+  {emoji:'🤖',title:'Data Science Intern',place:'Nexro',date:'2024 · 6 months',color:'#4CAF50',
+   desc:'Built ML models predicting Spotify streaming metrics from social media data. Developed the full pipeline from data collection to model deployment and evaluation. Presented findings to the team and stakeholders.',
+   highlight:'"XGBoost outperformed every other model. YouTube subscriber count was the single most predictive feature — more than any direct music metric."',
+   learned:['Python','XGBoost','NLP','FastAPI','Data Pipelines','Model Evaluation','Stakeholder Communication']},
+  {emoji:'🍹',title:'Bar Manager',place:'Granbar',date:'2022 – 2023 · 1 year',color:'#cc8800',
+   desc:'Managed daily bar operations, staff scheduling, inventory, and supplier relations. Built spreadsheet-based forecasting tools to predict busy nights and optimise stock — the first data project before the formal ones.',
+   highlight:'"Running a bar is basically operations research. Demand forecasting, inventory management, queue theory, and staff scheduling — all happening in real time every night."',
+   learned:['Leadership','Operations','Inventory Management','Forecasting','Excel/Sheets','Customer Service']},
+  {emoji:'⚓',title:'Service Member',place:'Norwegian Navy',date:'2020 – 2021 · 1.5 years',color:'#4488cc',
+   desc:'Completed mandatory military service in the Norwegian Navy. Worked in operational roles requiring discipline, fast decision-making under pressure, and clear communication within a structured team.',
+   highlight:'"Systems either work or they don\'t — there is no \'it kind of works\'. That mindset carries directly into engineering."',
+   learned:['Discipline','Operational Thinking','Teamwork','Decision-making under pressure','Resilience']},
 ];
+const LAYOUT=[{x:-280,y:20,z:40,tilt:-5},{x:0,y:-40,z:-50,tilt:4},{x:280,y:30,z:30,tilt:-3}];
+const field=document.getElementById('card-field');
+const overlay=document.getElementById('job-overlay');
+const closeBtn=document.getElementById('job-close');
 
-const LAYOUT = [
-  { x: -280, y: 20,  z: 40,  tilt: -5 },
-  { x: 0,    y: -40, z: -50, tilt: 4 },
-  { x: 280,  y: 30,  z: 30,  tilt: -3 },
-];
-
-const field   = document.getElementById('card-field');
-const overlay = document.getElementById('job-overlay');
-const closeBtn= document.getElementById('job-close');
-
-const cards = JOBS.map((job, i) => buildCard(job, LAYOUT[i], i));
-
-function buildCard(job, layout, idx){
-  const el = document.createElement('div');
-  el.className = 'wcard';
-  el.innerHTML = `
-    <div class="wcard-face wcard-front">
-      <div class="wcard-top" style="background:${job.color}18;">${job.emoji}</div>
-      <div class="wcard-body">
-        <div class="wcard-title">${job.title}</div>
-        <div class="wcard-place">${job.place}</div>
-        <div class="wcard-date">${job.date}</div>
-        <div class="wcard-hint">Click to open ↗</div>
-      </div>
-    </div>
-    <div class="wcard-face wcard-back" style="font-size:32px;">${job.emoji}</div>
-    <div class="wcard-edge wcard-edge-r"></div>
-    <div class="wcard-edge wcard-edge-l"></div>
-    <div class="wcard-edge wcard-edge-t"></div>
-    <div class="wcard-edge wcard-edge-b"></div>
-  `;
+const cards=JOBS.map((job,i)=>{
+  const el=document.createElement('div');el.className='wcard';
+  el.innerHTML=`<div class="wcard-face wcard-front"><div class="wcard-top" style="background:${job.color}15;">${job.emoji}</div><div class="wcard-body"><div class="wcard-title">${job.title}</div><div class="wcard-place">${job.place}</div><div class="wcard-date">${job.date}</div><div class="wcard-hint">Click to open ↗</div></div></div><div class="wcard-face wcard-back" style="font-size:40px;">${job.emoji}</div><div class="wcard-edge wcard-edge-r"></div><div class="wcard-edge wcard-edge-l"></div><div class="wcard-edge wcard-edge-t"></div><div class="wcard-edge wcard-edge-b"></div>`;
   field.appendChild(el);
-  el.addEventListener('click', () => openJob(job));
-
-  return {
-    el, job,
-    baseX: layout.x, baseY: layout.y, baseZ: layout.z,
-    tilt: layout.tilt,
-    angle: (idx / JOBS.length) * Math.PI * 2,
-    spinSpeed: 0.004,
-    floatPhase: idx * 1.4,
-    floatSpeed: 0.5 + idx * 0.08,
-  };
-}
+  el.addEventListener('click',()=>openJob(job));
+  return {el,baseX:LAYOUT[i].x,baseY:LAYOUT[i].y,baseZ:LAYOUT[i].z,tilt:LAYOUT[i].tilt,angle:i/JOBS.length*Math.PI*2,floatPhase:i*1.4,floatSpeed:0.5+i*0.08};
+});
 
 function openJob(job){
-  document.getElementById('jo-emoji').textContent   = job.emoji;
-  document.getElementById('jo-title').textContent   = job.title;
-  document.getElementById('jo-place').textContent   = job.place;
-  document.getElementById('jo-date').textContent    = job.date;
-  document.getElementById('jo-desc').textContent    = job.desc;
-  document.getElementById('jo-highlight').textContent = job.highlight;
-  const learnedEl = document.getElementById('jo-learned');
-  learnedEl.innerHTML = job.learned.map(t=>`<span class="job-tag">${t}</span>`).join('');
+  document.getElementById('jo-emoji').textContent=job.emoji;
+  document.getElementById('jo-title').textContent=job.title;
+  document.getElementById('jo-place').textContent=job.place;
+  document.getElementById('jo-date').textContent=job.date;
+  document.getElementById('jo-desc').textContent=job.desc;
+  document.getElementById('jo-highlight').textContent=job.highlight;
+  document.getElementById('jo-learned').innerHTML=job.learned.map(t=>`<span class="job-tag">${t}</span>`).join('');
   overlay.classList.add('open');
 }
+closeBtn.addEventListener('click',()=>overlay.classList.remove('open'));
+overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.classList.remove('open');});
 
-closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
-overlay.addEventListener('click', e => { if(e.target===overlay) overlay.classList.remove('open'); });
-
-let t = 0;
+let t=0;
 function tick(){
   t++;
-  cards.forEach(c => {
-    c.angle += c.spinSpeed;
-    const floatY = Math.sin(t * 0.01 * c.floatSpeed + c.floatPhase) * 14;
-    c.el.style.transform =
-      `translate3d(${c.baseX}px,${c.baseY + floatY}px,${c.baseZ}px) ` +
-      `rotateY(${c.angle}rad) rotateX(${c.tilt}deg)`;
+  cards.forEach((c,i)=>{
+    c.angle+=0.004;
+    const floatY=Math.sin(t*0.01*c.floatSpeed+c.floatPhase)*14;
+    c.el.style.transform=`translate3d(${c.baseX}px,${c.baseY+floatY}px,${c.baseZ}px) rotateY(${c.angle}rad) rotateX(${c.tilt}deg)`;
   });
   requestAnimationFrame(tick);
 }
 tick();
 </script>
-
 </body>
 </html>
